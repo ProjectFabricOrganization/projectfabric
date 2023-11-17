@@ -34,4 +34,4 @@ jobs:
 
      # change'/' to '/projectfabric/'
     - name: Change base-tag in index.html from / to projectfabric
-      run: sed -i 's/<base href="\/" \/>/<base href="\/projectfabric\/" \/>/g' relea
+      run: sed -i 's/<base href="\/" \/>/<base href="\/projectfabric\/" \/>/g' release/wwwroot/index.html
