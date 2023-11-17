@@ -21,8 +21,7 @@ jobs:
         
       # publish static
     - name: Publish .NET Core Project
-      uses: ./src/ProjectFabric.Blazor.Wasm
-      run: dotnet publish -c Release --output release --nologo
+      run: dotnet publish ${{ github.workspace }}/projectfabric/src/ProjectFabric.Blazor.Wasm -c Release --output release --nologo
       
       # deploy to Github Pages 
     - name: Uploading files to gh-pages branch
