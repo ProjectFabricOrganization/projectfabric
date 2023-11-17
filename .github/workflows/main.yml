@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+
+# deploy from master
+on:
+  push:
+    branches: main
+    
+jobs:
+  deploy-to-github-pages:
+    runs-on: ubuntu-latest
+    steps:
+      # clone repo to vm
+    - uses: actions/checkout@v2
+    
+      # install dependencies
+    - name: Setup .NET 7
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '7.0.x'
+        include-prerelease: true
+        
+      # publish static
+    - name: Publish .NET Core Project
+      run: dotnet publish ProjectFabric.Blazor.Wasm.csproj -c Release --output release --nologo
+      
+      # deploy to Github Pages 
+    - name: Uploading files to gh-pages branch
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages
+        folder: release/wwwroot
+  
