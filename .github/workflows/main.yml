@@ -31,3 +31,7 @@ jobs:
         branch: gh-pages
         folder: src/ProjectFabric.Blazor.Wasm/release/wwwroot
         ssh-key: ${{ secrets.DEPLOY_KEY }}
+
+     # change'/' to '/projectfabric/'
+    - name: Change base-tag in index.html from / to projectfabric
+      run: sed -i 's/<base href="\/" \/>/<base href="\/projectfabric\/" \/>/g' relea
