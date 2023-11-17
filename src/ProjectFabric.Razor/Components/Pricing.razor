@@ -1,0 +1,87 @@
+﻿@inject IApplicationStateService ApplicationStateService
+
+<div class="relative isolate">
+    <div class="mx-auto max-w-2xl text-center lg:max-w-4xl">
+        <p class="text-2xl font-medium tracking-tight text-gray-900 sm:text-4xl dark:text-blue-500">Simple pricing</p>
+    </div>
+    <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Simple pricing designed to return 10x the value of your investment.</p>
+    <div class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
+        <div class="relative shadow-2xl rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10">
+            <h3 id="tier-pro" class="text-base font-semibold leading-7 text-primary">Pro</h3>
+            <p class="mt-4 flex items-baseline gap-x-2">
+                <span class="text-5xl font-bold tracking-tight text-gray-900">$29</span><span class="text-base text-gray-500">/mo</span>
+            </p>
+            <p class="mt-6 text-base leading-7 text-gray-600">For entrepreneurs and small teams.</p>
+            <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600 sm:mt-10">
+                <li class="flex gap-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-5 flex-none text-primary" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>3 full business plans a month
+                </li>
+                <li class="flex gap-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-5 flex-none text-primary" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Ongoing updates to your business plan
+                </li>
+                <li class="flex gap-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-5 flex-none text-primary" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Chat AI consultant
+                </li>
+                <li class="flex gap-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-5 flex-none text-primary" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Unlimited Chat messages
+                </li>
+                <li class="flex gap-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-5 flex-none text-primary" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>100+ content templates
+                </li>
+                <li class="flex gap-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-5 flex-none text-primary" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Long-form AI document editor
+                </li>
+                <li class="flex gap-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-5 flex-none text-primary" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Generate unlimited lite business plans
+                </li>
+                <li class="flex gap-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-5 flex-none text-primary" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Priority email support
+                </li>
+            </ul><a class="inline-flex items-center justify-center rounded-md text-[15px] font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary-darker h-10 px-4 mt-8 sm:mt-10 w-full" aria-describedby="tier-pro" href="/app/home">Get started</a>
+        </div>
+        <div class="sm:mx-8 lg:mx-0 sm:rounded-t-none lg:rounded-tr-3xl lg:rounded-bl-none rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10">
+            <h3 id="tier-free" class="text-base font-semibold leading-7 text-primary">Basic</h3>
+            <p class="mt-4 flex items-baseline gap-x-2">
+                <span class="text-5xl font-bold tracking-tight text-gray-900">Free</span><span class="text-base text-gray-500"></span>
+            </p>
+            <p class="mt-6 text-base leading-7 text-gray-600">Designed to give you a taste of Venturekit.</p>
+            <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600 sm:mt-10">
+                <li class="flex gap-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-5 flex-none text-primary" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Generate one business plan preview
+                </li>
+                <li class="flex gap-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-5 flex-none text-primary" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>3 Chat messages
+                </li>
+                <li class="flex gap-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-5 flex-none text-primary" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>10 content generations
+                </li>
+            </ul><a class="inline-flex items-center justify-center rounded-md text-[15px] font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground active:bg-black/10 h-10 px-4 mt-8 sm:mt-10 w-full" aria-describedby="tier-free" href="/app/home">Get started</a>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

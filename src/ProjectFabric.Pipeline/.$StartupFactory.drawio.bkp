@@ -1,0 +1,60 @@
+<mxfile host="www.draw.io" modified="2023-10-06T23:27:12.245Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="T_UYTQ4hbC6ckFBDjEHl" version="22.0.3" type="device">
+  <diagram name="Main" id="6dNeeDlcwB2kHcsUVzkH">
+    <mxGraphModel dx="1050" dy="685" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="Clients" tooltip="Blazor Hybrid" id="ZyN4aR28CpXreayadRzS-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+            <mxGeometry x="530" y="306" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Documentation" tooltip="Project Documentation in readable format" link="https://dev.azure.com/antonryzhkoudevops/_git/Startup%20Factory?path=/README.md" id="ZyN4aR28CpXreayadRzS-2">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+            <mxGeometry x="322" y="213" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Domain" tooltip="Startup" id="ZyN4aR28CpXreayadRzS-3">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+            <mxGeometry x="322" y="129" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Libraries" tooltip=".NET6" id="ZyN4aR28CpXreayadRzS-4">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#b0e3e6;strokeColor=#0e8088;" parent="1" vertex="1">
+            <mxGeometry x="122" y="306" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Servers" tooltip="Azure" id="ZyN4aR28CpXreayadRzS-5">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#ffcccc;strokeColor=#36393d;" parent="1" vertex="1">
+            <mxGeometry x="322" y="396" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Storage" tooltip="Azure DB" id="ZyN4aR28CpXreayadRzS-6">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#b1ddf0;strokeColor=#10739e;" parent="1" vertex="1">
+            <mxGeometry x="393.5" y="306" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Test" tooltip="xUnit" id="ZyN4aR28CpXreayadRzS-7">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#bac8d3;strokeColor=#23445d;" parent="1" vertex="1">
+            <mxGeometry x="257" y="306" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Publish" tooltip="Azure" id="ZyN4aR28CpXreayadRzS-18">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#ffff88;strokeColor=#36393d;" parent="1" vertex="1">
+            <mxGeometry x="322" y="478" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Customer" tooltip="Type: Organization&#xa;Microsoft" id="AuOlFJqit5t86twnsWLT-4">
+          <mxCell style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;" vertex="1" parent="1">
+            <mxGeometry x="367" y="15" width="30" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Solution" tooltip="Azure/.NET" id="AuOlFJqit5t86twnsWLT-9">
+          <mxCell style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Solutions.svg;" vertex="1" parent="1">
+            <mxGeometry x="357" y="559.5" width="50" height="50" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,43 @@
+﻿@inherits MvvmComponentBase<NavMenuViewModel>
+
+<!-- Main navigation container -->
+<nav class="flex" aria-label="Global">
+    <div class="flex basis-auto p-6 @ViewModel.Theme.Styles["bg"]">
+        <a class="-m-1.5 p-1.5" href="/">
+            <span class="sr-only">@ViewModel.Theme.Organization</span>
+            <img src="images/logo.svg" width="120" height="40" class="h-10 w-auto mx-auto @ViewModel.Theme.Styles["bg"]" alt="logo">
+        </a>
+    </div>
+    <div class="flex flex-1 p-6 gap-x-2 justify-center items-center @ViewModel.Theme.Styles["bg"]">
+        @foreach (var navItem in ViewModel.Theme.NavItems)
+        {
+            <a class="flex items-center rounded-md font-medium h-10 px-8 dark:text-white" href="@navItem.Link">@navItem.Name</a>
+        }
+    </div>
+    <div class="flex basis-auto p-6 items-center justify-end gap-x-6 shrink-0 @ViewModel.Theme.Styles["bg"]">
+        <button id="theme-toggle" 
+                @onclick="ViewModel.ChangeTheme"
+                data-tooltip-target="tooltip-toggle" 
+                type="button"
+                class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 @ViewModel.Theme.Styles["bg"]">
+            <svg id="theme-toggle-dark-icon" class="w-4 h-4 hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                <path d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-11a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm0 12a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1ZM4.343 5.757a1 1 0 0 0 1.414-1.414L4.343 2.929a1 1 0 0 0-1.414 1.414l1.414 1.414Zm11.314 8.486a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM4 10a1 1 0 0 0-1-1H1a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm15-1h-2a1 1 0 1 0 0 2h2a1 1 0 0 0 0-2ZM4.343 14.243l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414a1 1 0 0 0-1.414-1.414ZM14.95 6.05a1 1 0 0 0 .707-.293l1.414-1.414a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 .707 1.707Z"></path>
+            </svg>
+            <span class="sr-only">Toggle dark mode</span>
+        </button>
+
+        <a class="items-center justify-center rounded-md text-[15px] font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground active:bg-black/10 h-10 px-4 hidden sm:flex dark:text-white" href="/login">Log in</a>
+        <button type="button"
+                @onclick="ViewModel.GetStarted"
+                class="text-yellow-400 w-auto inline-flex items-center justify-center hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900 shadow-lg dark:shadow-orange"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                data-modal-target="default-modal" 
+                data-modal-toggle="default-modal">
+            Get Started
+        </button>
+    </div>
+</nav>

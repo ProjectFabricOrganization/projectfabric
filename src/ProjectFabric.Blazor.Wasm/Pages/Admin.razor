@@ -1,0 +1,15 @@
+﻿@page "/admin"
+@inject IJSRuntime JSRuntime
+@inject ProjectFabricAuthenticationStateProvider ProjectFabricAuthenticationStateProvider
+
+<div id="blazor-school-button"></div>
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var projectFabricAuthenticationStateProvider = DotNetObjectReference.Create<ProjectFabricAuthenticationStateProvider>(ProjectFabricAuthenticationStateProvider);
+        await JSRuntime.InvokeVoidAsync("projectFabricGoogleInitialize", "593029476420-9vn0seo0b231vtn1686guhh0nqmfk7ut.apps.googleusercontent.com", projectFabricAuthenticationStateProvider);
+        var element = await JSRuntime.InvokeAsync<IJSObjectReference>("document.getElementById", "blazor-school-button");
+        await JSRuntime.InvokeVoidAsync("google.accounts.id.renderButton", element, new { theme = "filled_blue", size = "large" });
+    }
+
+}
