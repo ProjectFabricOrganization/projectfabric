@@ -1,0 +1,3 @@
+﻿function alertTest() {
+    alert("ALLLERT!!!!");
+}
