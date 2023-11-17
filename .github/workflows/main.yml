@@ -30,4 +30,4 @@ jobs:
       with:
         branch: gh-pages
         folder: src/ProjectFabric.Blazor.Wasm/release/wwwroot
-        token: ${{ secrets.DEPLOY_TOKEN }}
+        ssh-key: ${{ secrets.DEPLOY_KEY }}
