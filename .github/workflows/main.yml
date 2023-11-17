@@ -31,4 +31,4 @@ jobs:
         branch: gh-pages
         folder: src/ProjectFabric.Blazor.Wasm/release/wwwroot
         permissions:
-         contents: write
+            contents: write
