@@ -34,8 +34,10 @@ jobs:
 
      # change'/' to '/projectfabric/'
     - name: Change base-tag in index.html from / to projectfabric
+      working-directory: src/ProjectFabric.Blazor.Wasm
       run: sed -i 's/<base href="\/" \/>/<base href="\/projectfabric\/" \/>/g' release/wwwroot/index.html
       
      # disable jekyll
     - name: Add .nojekyll file
+      working-directory: src/ProjectFabric.Blazor.Wasm
       run: touch release/wwwroot/.nojekyll
