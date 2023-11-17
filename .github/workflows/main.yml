@@ -21,7 +21,7 @@ jobs:
         
       # publish static
     - name: Publish .NET Core Project
-      working-directory: src/MyProject
+      working-directory: src/ProjectFabric.Blazor.Wasm
       run: dotnet publish -c Release --output release --nologo
       
       # deploy to Github Pages 
