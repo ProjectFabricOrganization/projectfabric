@@ -26,9 +26,8 @@ jobs:
       
       # deploy to Github Pages 
     - name: Uploading files to gh-pages branch
-      working-directory: src/ProjectFabric.Blazor.Wasm
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
         branch: gh-pages
-        folder: release/wwwroot
+        folder: src/ProjectFabric.Blazor.Wasm/release/wwwroot
   
