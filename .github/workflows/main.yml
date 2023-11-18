@@ -33,15 +33,15 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
-        folder: wwwroot
+        folder: src/ProjectFabric.Blazor.Wasm/release/wwwroot
         ssh-key: ${{ secrets.DEPLOY_KEY }}
 
      # change'/' to '/projectfabric/'
     - name: Change base-tag in index.html from / to projectfabric
       working-directory: src/ProjectFabric.Blazor.Wasm
-      run: sed -i 's/<base href="\/" \/>/<base href="\/projectfabric\/" \/>/g' wwwroot/index.html
+      run: sed -i 's/<base href="\/" \/>/<base href="\/projectfabric\/" \/>/g' release/wwwroot/index.html
       
      # disable jekyll
     - name: Add .nojekyll file
       working-directory: src/ProjectFabric.Blazor.Wasm
-      run: touch wwwroot/.nojekyll
+      run: touch release/wwwroot/.nojekyll
