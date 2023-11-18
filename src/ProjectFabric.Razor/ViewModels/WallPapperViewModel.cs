@@ -13,7 +13,6 @@ public partial class WallPapperViewModel : ViewModelBase
     private readonly NavigationManager _navigationManager;
 
     [ObservableProperty] private Theme _theme = new();
-    [ObservableProperty] private ObservableCollection<NavItem> _navItems = new();
 
     public WallPapperViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(
@@ -21,25 +20,25 @@ public partial class WallPapperViewModel : ViewModelBase
     {
         _navigationManager = navigationManager;
     }
-
-    protected override void OnPropertyChanged(PropertyChangedEventArgs e)
-    {
-    }
-
+    
     public override Task OnInitializedAsync()
     {
         if (ApplicationStateService.State == null)
             throw new Exception("State is null");
 
-        if (ApplicationStateService.State.Theme == null)
+        if (ApplicationThemeService.Theme == null)
             throw new Exception("Theme is null");
 
-        Theme = ApplicationStateService.State.Theme;
-        
-        foreach (var navItem in Theme.NavItems)
-            NavItems.Add(navItem);
+        Theme = ApplicationThemeService.Theme;
 
+        Theme.PropertyChanged += Theme_PropertyChanged;
+        
         return Task.CompletedTask;
+    }
+
+    private void Theme_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        NotifyStateChanged();
     }
 
     [RelayCommand]

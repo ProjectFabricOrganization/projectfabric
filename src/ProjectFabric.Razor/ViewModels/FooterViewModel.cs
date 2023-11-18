@@ -24,12 +24,19 @@ public partial class FooterViewModel : ViewModelBase
         if (ApplicationStateService.State == null)
             throw new Exception("State is null");
 
-        if (ApplicationStateService.State.Theme == null)
+        if (ApplicationThemeService.Theme == null)
             throw new Exception("Theme is null");
 
-        Theme = ApplicationStateService.State.Theme;
+        Theme = ApplicationThemeService.Theme;
+
+        Theme.PropertyChanged += Theme_PropertyChanged;
 
         return Task.CompletedTask;
+    }
+
+    private void Theme_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        NotifyStateChanged();
     }
 
     [RelayCommand]

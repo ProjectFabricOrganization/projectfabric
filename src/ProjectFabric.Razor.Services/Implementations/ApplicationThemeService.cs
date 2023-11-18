@@ -15,8 +15,8 @@ public class ApplicationThemeService : IApplicationThemeService
                 Styles = new Dictionary<string, string>
                 {
                     { "bg", "bg-white dark:bg-gray-900 text-black dark:text-white" },
-                    { "logo", "bg-red-500 dark:bg-amber-300" },
-                    { "text", "text-neutral-600 dark:text-neutral-200" }
+                    { "logo", "bg-white dark:bg-yellow-400" },
+                    { "text", "text-neutral-600 dark:text-white" }
                 },
                 Dark = "dark",
                 Tenant = "dev",
@@ -33,9 +33,15 @@ public class ApplicationThemeService : IApplicationThemeService
         { "game portal", new Theme() }
     };
 
+    public Theme Theme { get; private set; }
+
     public Task<Theme> Load(string organizationId)
     {
-        if (_themes.TryGetValue(organizationId, out var theme)) return Task.FromResult(theme);
+        if (_themes.TryGetValue(organizationId, out var theme))
+        {
+            Theme = theme;
+            return Task.FromResult(theme);
+        }
 
         // default theme
         //var theme = new Theme

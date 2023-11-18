@@ -11,7 +11,7 @@ public partial class NavMenuViewModel : ViewModelBase
 {
     private readonly NavigationManager _navigationManager;
 
-    [ObservableProperty] private Theme _theme = new();
+    [ObservableProperty] private Theme _theme;
     [ObservableProperty] private ObservableCollection<NavItem> _navItems = new();
 
     public NavMenuViewModel(IApplicationStateService applicationStateService,
@@ -26,10 +26,10 @@ public partial class NavMenuViewModel : ViewModelBase
         if (ApplicationStateService.State == null)
             throw new Exception("State is null");
       
-        if (ApplicationStateService.State.Theme == null)
+        if (ApplicationThemeService.Theme == null)
             throw new Exception("Theme is null");
 
-        Theme = ApplicationStateService.State.Theme;
+        Theme = ApplicationThemeService.Theme;
 
         foreach (var navItem in Theme.NavItems)
             NavItems.Add(navItem);
@@ -44,10 +44,8 @@ public partial class NavMenuViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    public async Task ChangeTheme()
+    public void ChangeTheme()
     {
-        Theme.Dark = Theme.Dark == "dark" ? "" : "dark";
-
-        await ApplicationStateService.ChangeTheme();
+        Theme.Dark = Theme.Dark == "dark" ? null : "dark";
     }
 }

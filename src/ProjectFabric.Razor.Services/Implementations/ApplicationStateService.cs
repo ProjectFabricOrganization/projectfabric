@@ -6,21 +6,13 @@ namespace ProjectFabric.Razor.Services.Implementations;
 
 public class ApplicationStateService : IApplicationStateService
 {
-    private readonly IApplicationThemeService _themeService;
-
-    public ApplicationStateService(IApplicationThemeService themeService)
+    public ApplicationStateService()
     {
-        _themeService = themeService;
         State = new ApplicationState();
     }
 
     public ApplicationState State { get; }
     
-    public async Task Load(string organizationId)
-    {
-        State.Theme = await _themeService.Load(organizationId);
-    }
-
     public async Task ChangeTheme()
     {
         //var theme = await _localStorageService.GetItemAsStringAsync("theme");

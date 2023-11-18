@@ -1,13 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Components.Authorization
 @inject IApplicationStateService ApplicationStateService
+@inject IApplicationThemeService ApplicationThemeService
 
 <CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
-            <CascadingValue Value="@ApplicationStateService.State.Theme">
-                <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
-                <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
-            </CascadingValue>
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
+            <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
         </Found>
         <NotFound>
             <PageTitle>Not found</PageTitle>
@@ -25,7 +24,7 @@
         // entry point
         
         // load organization
-        await ApplicationStateService.Load("addinol reseller");
+        await ApplicationThemeService.Load("addinol reseller");
     }
 
 }
