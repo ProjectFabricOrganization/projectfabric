@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using ProjectFabric.Razor.Services.Interfaces;
 using ProjectFabric.Razor.ViewModels;
 
 namespace ProjectFabric.Blazor.ViewModels;
@@ -10,6 +11,12 @@ public class IndexViewModel : ViewModelBase
     public string Organization { get; set; }
 
     public ElementReference MyTarget { get; set; }
+
+    public IndexViewModel(IApplicationStateService applicationStateService,
+        IApplicationThemeService applicationThemeService) : base(applicationStateService, applicationThemeService)
+    {
+        
+    }
 
     public override Task OnInitializedAsync()
     {

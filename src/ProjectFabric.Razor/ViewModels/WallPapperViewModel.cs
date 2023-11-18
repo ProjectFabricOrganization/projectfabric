@@ -9,27 +9,27 @@ namespace ProjectFabric.Razor.ViewModels;
 
 public partial class WallPapperViewModel : ViewModelBase
 {
-    private readonly IApplicationStateService _applicationStateService;
     private readonly NavigationManager _navigationManager;
 
     [ObservableProperty] private Theme _theme = new();
     [ObservableProperty] private ObservableCollection<NavItem> _navItems = new();
 
-    public WallPapperViewModel(IApplicationStateService applicationStateService, NavigationManager navigationManager)
+    public WallPapperViewModel(IApplicationStateService applicationStateService,
+        IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(
+        applicationStateService, applicationThemeService)
     {
-        _applicationStateService = applicationStateService;
         _navigationManager = navigationManager;
     }
-    
+
     public override Task OnInitializedAsync()
     {
-        if (_applicationStateService.State == null)
+        if (ApplicationStateService.State == null)
             throw new Exception("State is null");
 
-        if (_applicationStateService.State.Theme == null)
+        if (ApplicationStateService.State.Theme == null)
             throw new Exception("Theme is null");
 
-        Theme = _applicationStateService.State.Theme;
+        Theme = ApplicationStateService.State.Theme;
 
         foreach (var navItem in Theme.NavItems)
             NavItems.Add(navItem);

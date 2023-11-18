@@ -1,7 +1,7 @@
 ﻿@inherits MvvmComponentBase<NavMenuViewModel>
 
 <!-- Main navigation container -->
-<nav class="flex" aria-label="Global">
+<nav class="flex @ViewModel.Theme.Dark @ViewModel.Theme.Styles["bg"]" aria-label="Global">
     <div class="flex basis-auto p-6 @ViewModel.Theme.Styles["bg"]">
         <a class="-m-1.5 p-1.5" href="/">
             <span class="sr-only">@ViewModel.Theme.Organization</span>
