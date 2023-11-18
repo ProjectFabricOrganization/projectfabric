@@ -46,10 +46,7 @@ public partial class NavMenuViewModel : ViewModelBase
     [RelayCommand]
     public async Task ChangeTheme()
     {
-        if (Theme.Dark == "dark")
-            Theme.Dark = null;
-        else
-            Theme.Dark = "dark";
+        Theme.Dark = Theme.Dark == "dark" ? "" : "dark";
 
         await ApplicationStateService.ChangeTheme();
     }

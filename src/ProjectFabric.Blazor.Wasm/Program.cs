@@ -21,6 +21,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddTransient<IndexViewModel>();
 builder.Services.AddTransient<NavMenuViewModel>();
 builder.Services.AddTransient<WallPapperViewModel>();
+builder.Services.AddTransient<FooterViewModel>();
 
 // services
 builder.Services.AddBlazoredLocalStorageAsSingleton();

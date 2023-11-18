@@ -1,13 +1,13 @@
 ﻿@inherits MvvmComponentBase<WallPapperViewModel>
 
-<main>
+<main class="@ViewModel.Theme.Dark">
     
     @* <div class="w-full mx-auto">
         <hr class="w-96 h-1 mx-auto bg-gray-100 border-0 rounded dark:">
     </div> *@
     
-    <div class="w-full mx-auto">
-        <div class="p-4 text-center justify-center items-center py-8 md:py-20">
+    <div class="w-full mx-auto @ViewModel.Theme.Dark @ViewModel.Theme.Styles["bg"]">
+        <div class="p-4 text-center justify-center items-center py-8 md:py-20 @ViewModel.Theme.Dark @ViewModel.Theme.Styles["bg"]">
             <h1 class="font-sans text-3xl ml-96 mr-96 justify-center items-center text-md mb-6 text-center font-medium tracking-tight mb-6 text-4xl dark:text-white">"Get an AI-generated business digital maintenance in seconds"</h1>
             <span class="text-md ml-96 mr-96 text-neutral-600 mb-6 block md:text-lg dark:text-white">Your free plan covers business model structure, marketing campaigns, digital maintenance. Improve your business, using AI.</span>
             <button
@@ -22,8 +22,8 @@
         </div>
     </div>
 
-    <div class="w-full mx-auto">
-        <div class="p-4 text-center py-8 md:py-20  ">
+    <div class="w-full mx-auto @ViewModel.Theme.Dark @ViewModel.Theme.Styles["bg"]">
+        <div class="p-4 text-center py-8 md:py-20 @ViewModel.Theme.Dark @ViewModel.Theme.Styles["bg"]">
             <h1 class="text-3xl ml-96 mr-96 font-medium tracking-tight mb-6 md:text-4xl dark:text-white">Join to us</h1>
             <span class="text-md ml-96 mr-96 text-neutral-600 mb-6 block md:text-lg dark:text-white">Are you an engineer, investor, salesman or analyst? Join the team soon and become part of our team.</span>
             <button
@@ -37,8 +37,8 @@
         </div>
     </div>
 
-    <div class="w-full mx-auto">
-        <div class="p-4 text-center py-8 md:py-20">
+    <div class="w-full mx-auto @ViewModel.Theme.Dark @ViewModel.Theme.Styles["bg"]">
+        <div class="p-4 text-center py-8 md:py-20 @ViewModel.Theme.Dark @ViewModel.Theme.Styles["bg"]">
             <h1 class="text-3xl font-medium tracking-tight mb-6 text-4xl dark:text-white">Newsletter</h1>
             <span class="text-md text-neutral-600 mb-6 block md:text-lg dark:text-white">Sign up to stay in the loop with the latest features and updates!</span>
             <div class="flex justify-center">

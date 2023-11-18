@@ -10,11 +10,13 @@ public class ApplicationThemeService : IApplicationThemeService
         {
             "addinol reseller", new Theme
             {
-                Organization = "Carmarket",
+                Organization = "Addinol Reseller",
                 Logo = "images/logo.svg",
                 Styles = new Dictionary<string, string>
                 {
-                    { "bg", "bg-white dark:bg-gray-900" }
+                    { "bg", "bg-white dark:bg-gray-900 text-black dark:text-white" },
+                    { "logo", "bg-red-500 dark:bg-amber-300" },
+                    { "text", "text-neutral-600 dark:text-neutral-200" }
                 },
                 Dark = "dark",
                 Tenant = "dev",
@@ -24,8 +26,7 @@ public class ApplicationThemeService : IApplicationThemeService
                 {
                     new NavItem { Name = "Home", Link = "/" },
                     new NavItem { Name = "Pricing", Link = "/pricing" },
-                    new NavItem { Name = "About", Link = "/about" },
-                    new NavItem { Name = "Join", Link = "/join" }
+                    new NavItem { Name = "About", Link = "/about" }
                 })
             }
         },

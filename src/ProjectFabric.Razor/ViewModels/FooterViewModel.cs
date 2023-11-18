@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Components;
 using ProjectFabric.Razor.Models;
@@ -8,22 +6,17 @@ using ProjectFabric.Razor.Services.Interfaces;
 
 namespace ProjectFabric.Razor.ViewModels;
 
-public partial class WallPapperViewModel : ViewModelBase
+public partial class FooterViewModel : ViewModelBase
 {
     private readonly NavigationManager _navigationManager;
 
     [ObservableProperty] private Theme _theme = new();
-    [ObservableProperty] private ObservableCollection<NavItem> _navItems = new();
 
-    public WallPapperViewModel(IApplicationStateService applicationStateService,
+    public FooterViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(
         applicationStateService, applicationThemeService)
     {
         _navigationManager = navigationManager;
-    }
-
-    protected override void OnPropertyChanged(PropertyChangedEventArgs e)
-    {
     }
 
     public override Task OnInitializedAsync()
@@ -35,9 +28,6 @@ public partial class WallPapperViewModel : ViewModelBase
             throw new Exception("Theme is null");
 
         Theme = ApplicationStateService.State.Theme;
-        
-        foreach (var navItem in Theme.NavItems)
-            NavItems.Add(navItem);
 
         return Task.CompletedTask;
     }
