@@ -1,4 +1,5 @@
-﻿using ProjectFabric.Razor.Models;
+﻿using System.Collections.ObjectModel;
+using ProjectFabric.Razor.Models;
 using ProjectFabric.Razor.Services.Interfaces;
 
 namespace ProjectFabric.Razor.Services.Implementations;
@@ -10,31 +11,38 @@ public class ApplicationThemeService : IApplicationThemeService
         {
             "addinol reseller", new Theme
             {
-                Organization = "Carmarket",
+                Organization = "Addinol Reseller",
+                OrganizationDetails = "We are provide AI-generated business digital maintenance in seconds",
                 Logo = "images/logo.svg",
-                Styles = new Dictionary<string, string>
-                {
-                    { "bg", "bg-white dark:bg-gray-900" }
-                },
+                //Styles = new Dictionary<string, string>
+                //{
+                //    { "bg", "bg-white dark:bg-gray-900 text-black dark:text-white" },
+                //    { "logo", "bg-white dark:bg-yellow-400" },
+                //    { "text", "text-neutral-600 dark:text-white" }
+                //},
                 Dark = "dark",
                 Tenant = "dev",
-                Content = "",
-                Footer = "",
-                NavItems = new List<NavItem>(new[]
+                NavItems = new ObservableCollection<NavItem>(new[]
                 {
                     new NavItem { Name = "Home", Link = "/" },
                     new NavItem { Name = "Pricing", Link = "/pricing" },
-                    new NavItem { Name = "About", Link = "/about" },
-                    new NavItem { Name = "Join", Link = "/join" }
-                })
+                    new NavItem { Name = "About", Link = "/about" }
+                }),
+
             }
         },
         { "game portal", new Theme() }
     };
 
+    public Theme Theme { get; private set; }
+
     public Task<Theme> Load(string organizationId)
     {
-        if (_themes.TryGetValue(organizationId, out var theme)) return Task.FromResult(theme);
+        if (_themes.TryGetValue(organizationId, out var theme))
+        {
+            Theme = theme;
+            return Task.FromResult(theme);
+        }
 
         // default theme
         //var theme = new Theme

@@ -12,16 +12,6 @@ module.exports = {
             lg: "976px",
             xl: "1440px",
         },
-        colors: {
-            transparent: "transparent",
-            black: "#000",
-            white: "#fff",
-            gray: {
-                100: "#f7fafc",
-                900: "#fff"
-            },
-            'orange': '#ff7849'
-        },
         extend: {
             spacing: {
                 '128': "32rem",

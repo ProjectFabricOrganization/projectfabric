@@ -19,7 +19,7 @@ namespace ProjectFabric.Blazor
             // pages view models
             builder.Services.AddTransient<IndexViewModel>();
             builder.Services.AddTransient<NavMenuViewModel>();
-            builder.Services.AddTransient<WallPapperViewModel>();
+            builder.Services.AddTransient<WallPaperViewModel>();
 
             //
             builder.Services.AddSingleton<OrganizationService>();

@@ -1,6 +1,26 @@
-﻿@inherits LayoutComponentBase
+﻿@using System.ComponentModel
+@inherits LayoutComponentBase
+@inject IApplicationThemeService ApplicationThemeService
 
-@* // Default layout *@
-<NavMenu></NavMenu>
-@Body
-<Footer></Footer>
+<div class="@Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
+    <NavMenu></NavMenu>
+    @Body
+    <Footer></Footer>
+</div>
+
+@code
+{
+    public Theme Theme;
+
+    protected override void OnInitialized()
+    {
+        Theme = ApplicationThemeService.Theme;
+        Theme.PropertyChanged += ThemeOnPropertyChanged;
+        base.OnInitialized();
+    }
+
+    private void ThemeOnPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        StateHasChanged();
+    }
+}

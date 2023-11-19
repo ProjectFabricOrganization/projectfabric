@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Components;
 using ProjectFabric.Razor.Models;
@@ -7,14 +6,13 @@ using ProjectFabric.Razor.Services.Interfaces;
 
 namespace ProjectFabric.Razor.ViewModels;
 
-public partial class NavMenuViewModel : ViewModelBase
+public partial class RegistrationViewModel : ViewModelBase
 {
     private readonly NavigationManager _navigationManager;
 
-    [ObservableProperty] private Theme _theme;
-    [ObservableProperty] private ObservableCollection<NavItem> _navItems = new();
+    [ObservableProperty] private Theme _theme = new();
 
-    public NavMenuViewModel(IApplicationStateService applicationStateService,
+    public RegistrationViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(
         applicationStateService, applicationThemeService)
     {
@@ -25,27 +23,25 @@ public partial class NavMenuViewModel : ViewModelBase
     {
         if (ApplicationStateService.State == null)
             throw new Exception("State is null");
-      
+
         if (ApplicationThemeService.Theme == null)
             throw new Exception("Theme is null");
 
         Theme = ApplicationThemeService.Theme;
 
-        foreach (var navItem in Theme.NavItems)
-            NavItems.Add(navItem);
+        Theme.PropertyChanged += Theme_PropertyChanged;
 
         return Task.CompletedTask;
     }
 
-    [RelayCommand]
-    public void GetStarted()
+    private void Theme_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
-        _navigationManager.NavigateTo("registration");
+        NotifyStateChanged();
     }
 
     [RelayCommand]
-    public void ChangeTheme()
+    public void Submit()
     {
-        Theme.Dark = Theme.Dark == "dark" ? null : "dark";
+        _navigationManager.NavigateTo("registration");
     }
 }

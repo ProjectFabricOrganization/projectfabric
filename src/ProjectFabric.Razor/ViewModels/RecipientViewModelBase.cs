@@ -19,7 +19,7 @@ public abstract partial class RecipientViewModelBase<TMessage> : ObservableRecip
     {
         await Task.CompletedTask.ConfigureAwait(false);
     }
-
+    
     protected virtual void NotifyStateChanged()
     {
         OnPropertyChanged(default(string));
