@@ -12,6 +12,7 @@ public class ApplicationThemeService : IApplicationThemeService
             "addinol reseller", new Theme
             {
                 Organization = "Addinol Reseller",
+                OrganizationDetails = "We are provide AI-generated business digital maintenance in seconds",
                 Logo = "images/logo.svg",
                 //Styles = new Dictionary<string, string>
                 //{
@@ -21,14 +22,13 @@ public class ApplicationThemeService : IApplicationThemeService
                 //},
                 Dark = "dark",
                 Tenant = "dev",
-                Content = "",
-                Footer = "",
                 NavItems = new ObservableCollection<NavItem>(new[]
                 {
                     new NavItem { Name = "Home", Link = "/" },
                     new NavItem { Name = "Pricing", Link = "/pricing" },
                     new NavItem { Name = "About", Link = "/about" }
-                })
+                }),
+
             }
         },
         { "game portal", new Theme() }
