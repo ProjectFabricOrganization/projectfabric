@@ -8,13 +8,13 @@ using ProjectFabric.Razor.Services.Interfaces;
 
 namespace ProjectFabric.Razor.ViewModels;
 
-public partial class WallPapperViewModel : ViewModelBase
+public partial class WallPaperViewModel : ViewModelBase
 {
     private readonly NavigationManager _navigationManager;
 
     [ObservableProperty] private Theme _theme = new();
 
-    public WallPapperViewModel(IApplicationStateService applicationStateService,
+    public WallPaperViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(
         applicationStateService, applicationThemeService)
     {
