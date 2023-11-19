@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Components;
@@ -13,7 +12,9 @@ public partial class WallPaperViewModel : ViewModelBase
     private readonly NavigationManager _navigationManager;
 
     [ObservableProperty] private Theme _theme = new();
-
+    [ObservableProperty] private string _startUsingText;
+    [ObservableProperty] private string _joinText;
+    [ObservableProperty] private string _subscribeText;
     public WallPaperViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(
         applicationStateService, applicationThemeService)
@@ -32,7 +33,11 @@ public partial class WallPaperViewModel : ViewModelBase
         Theme = ApplicationThemeService.Theme;
 
         Theme.PropertyChanged += Theme_PropertyChanged;
-        
+
+        StartUsingText = "Start using for free";
+        JoinText = "Join";
+        SubscribeText = "Subscribe";
+
         return Task.CompletedTask;
     }
 
@@ -42,7 +47,25 @@ public partial class WallPaperViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    public void GetStarted()
+    public void StartUsing()
+    {
+        _navigationManager.NavigateTo("registration");
+    }
+
+    [RelayCommand]
+    public void Join()
+    {
+        _navigationManager.NavigateTo("registration");
+    }
+
+    [RelayCommand]
+    public void Subscribe()
+    {
+        _navigationManager.NavigateTo("registration");
+    }
+
+    [RelayCommand]
+    public void Submit(string par)
     {
         _navigationManager.NavigateTo("registration");
     }

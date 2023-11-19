@@ -1,8 +1,9 @@
-﻿namespace ProjectFabric.Razor.Models;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-public class NavItem
+namespace ProjectFabric.Razor.Models;
+
+public partial class NavItem : ObservableObject
 {
-    public string Name { get; set; }
-
-    public string Link { get; set; }
+    [ObservableProperty] private string _name;
+    [ObservableProperty] private string _link;
 }

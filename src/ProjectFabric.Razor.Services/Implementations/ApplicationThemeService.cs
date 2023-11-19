@@ -1,4 +1,5 @@
-﻿using ProjectFabric.Razor.Models;
+﻿using System.Collections.ObjectModel;
+using ProjectFabric.Razor.Models;
 using ProjectFabric.Razor.Services.Interfaces;
 
 namespace ProjectFabric.Razor.Services.Implementations;
@@ -22,7 +23,7 @@ public class ApplicationThemeService : IApplicationThemeService
                 Tenant = "dev",
                 Content = "",
                 Footer = "",
-                NavItems = new List<NavItem>(new[]
+                NavItems = new ObservableCollection<NavItem>(new[]
                 {
                     new NavItem { Name = "Home", Link = "/" },
                     new NavItem { Name = "Pricing", Link = "/pricing" },

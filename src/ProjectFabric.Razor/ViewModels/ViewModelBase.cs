@@ -27,4 +27,5 @@ public abstract partial class ViewModelBase : ObservableObject, IViewModelBase
     {
         await Task.CompletedTask.ConfigureAwait(true);
     }
+
 }

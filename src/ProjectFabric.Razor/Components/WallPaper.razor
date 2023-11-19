@@ -8,12 +8,12 @@
             <span class="text-md ml-96 mr-96 text-neutral-600 mb-6 block md:text-lg dark:text-white">Your free plan covers business model structure, marketing campaigns, digital maintenance. Improve your business, using AI.</span>
             <button
                 type="button"
-                @onclick="@ViewModel.GetStarted"
+                @onclick="@ViewModel.StartUsing"
                 class="text-yellow-400 w-auto hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900"
                 data-te-ripple-init
                 data-te-ripple-color="light"
                 data-popover-target="popover-default">
-                Start using for free
+                @ViewModel.StartUsingText
             </button>
         </div>
     </div>
@@ -28,11 +28,11 @@
             <span class="text-md ml-96 mr-96 text-neutral-600 mb-6 block md:text-lg dark:text-white">Are you an engineer, investor, salesman or analyst? Join the team soon and become part of our team.</span>
             <button
                 type="button"
-                @onclick="ViewModel.GetStarted"
+                @onclick="ViewModel.Join"
                 class="text-yellow-400 w-auto hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900"
                 data-te-ripple-init
                 data-te-ripple-color="light">
-                I'm in
+                @ViewModel.JoinText
             </button>
         </div>
     </div>
@@ -48,11 +48,11 @@
             <div class="flex justify-center">
                 <input type="email" id="email" class="bg-gray-50 max-w-sm max-h-10 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required>
                 <button type="button"
-                        @onclick="ViewModel.GetStarted"
+                        @onclick="ViewModel.Subscribe"
                         class="text-yellow-400 ml-2 mr-2 w-auto hover:text-white border border-yellow-400 justify-center hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900"
                         data-te-ripple-init
                         data-te-ripple-color="light">
-                    Subscribe
+                    @ViewModel.SubscribeText
                 </button>
             </div>
         </div>
