@@ -2,24 +2,24 @@
 
 <!-- Main navigation container -->
 <nav class="flex @ViewModel.Theme.Dark" aria-label="Global">
-    <div class="flex basis-auto p-6 @ViewModel.Theme.Styles["bg"]">
+    <div class="flex basis-auto p-6 @ViewModel.Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
         <a class="-m-1.5 p-1.5" href="/">
             <span class="sr-only">@ViewModel.Theme.Organization</span>
-            <img src="images/logo.svg" width="120" height="40" class="h-10 w-auto mx-auto @ViewModel.Theme.Styles["logo"]" alt="logo">
+            <img src="images/logo.svg" width="120" height="40" class="h-10 w-auto mx-auto bg-white dark:bg-yellow-400" alt="logo">
         </a>
     </div>
-    <div class="flex flex-1 p-6 gap-x-2 justify-center items-center @ViewModel.Theme.Styles["bg"]">
+    <div class="flex flex-1 p-6 gap-x-2 justify-center items-center @ViewModel.Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
         @foreach (var navItem in ViewModel.Theme.NavItems)
         {
-            <a class="flex items-center rounded-md font-medium h-10 px-8 @ViewModel.Theme.Styles["bg"]" href="@navItem.Link">@navItem.Name</a>
+            <a class="flex items-center rounded-md font-medium h-10 px-8 bg-white dark:bg-gray-900 text-black dark:text-white" href="@navItem.Link">@navItem.Name</a>
         }
     </div>
-    <div class="flex basis-auto p-6 items-center justify-end gap-x-6 shrink-0 @ViewModel.Theme.Styles["bg"]">
+    <div class="flex basis-auto p-6 items-center justify-end gap-x-6 shrink-0 @ViewModel.Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
         <button id="theme-toggle" 
                 @onclick="ViewModel.ChangeTheme"
                 data-tooltip-target="tooltip-toggle" 
                 type="button"
-                class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 @ViewModel.Theme.Styles["bg"]">
+                class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 bg-white dark:bg-gray-900 text-black dark:text-white">
             <svg id="theme-toggle-dark-icon" class="w-4 h-4 hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                 <path d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z"></path>
             </svg>

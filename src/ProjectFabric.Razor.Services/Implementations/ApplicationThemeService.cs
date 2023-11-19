@@ -12,12 +12,12 @@ public class ApplicationThemeService : IApplicationThemeService
             {
                 Organization = "Addinol Reseller",
                 Logo = "images/logo.svg",
-                Styles = new Dictionary<string, string>
-                {
-                    { "bg", "bg-white dark:bg-gray-900 text-black dark:text-white" },
-                    { "logo", "bg-white dark:bg-yellow-400" },
-                    { "text", "text-neutral-600 dark:text-white" }
-                },
+                //Styles = new Dictionary<string, string>
+                //{
+                //    { "bg", "bg-white dark:bg-gray-900 text-black dark:text-white" },
+                //    { "logo", "bg-white dark:bg-yellow-400" },
+                //    { "text", "text-neutral-600 dark:text-white" }
+                //},
                 Dark = "dark",
                 Tenant = "dev",
                 Content = "",
