@@ -24,9 +24,9 @@ public class ApplicationThemeService : IApplicationThemeService
                 Tenant = "dev",
                 NavItems = new ObservableCollection<NavItem>(new[]
                 {
-                    new NavItem { Name = "Home", Link = "/" },
-                    new NavItem { Name = "Pricing", Link = "/pricing" },
-                    new NavItem { Name = "About", Link = "/about" }
+                    new NavItem { Name = "Home", Link = "./" },
+                    new NavItem { Name = "Pricing", Link = "./pricing" },
+                    new NavItem { Name = "About", Link = "./about" }
                 }),
 
             }

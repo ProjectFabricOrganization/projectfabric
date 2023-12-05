@@ -11,7 +11,6 @@ function projectFabricGooglePrompt() {
     google.accounts.id.prompt((notification) => {
         if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
             console.info(notification.getNotDisplayedReason());
-            console.info(notification.getSkippedReason());
         }
     });
 }

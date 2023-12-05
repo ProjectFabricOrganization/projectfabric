@@ -10,6 +10,7 @@ public class User
     public int Age { get; set; }
     public List<string> Roles { get; set; } = new();
     public string FullName { get; set; } = "";
+    public string Email { get; set; } = "";
 
     public static User? FromGoogleJwt(string token)
     {
@@ -20,10 +21,16 @@ public class User
 
         var jwtSecurityToken = tokenHandler.ReadJwtToken(token);
 
+        foreach (var claim in jwtSecurityToken.Claims)
+        {
+            Console.WriteLine($"Claim {claim.Type}: {claim.Value}");
+        }
+
         return new User
         {
             Username = jwtSecurityToken.Claims.First(c => c.Type == "name").Value,
-            Password = ""
+            Password = "",
+            Email = jwtSecurityToken.Claims.First(c => c.Type == "email").Value
         };
     }
 

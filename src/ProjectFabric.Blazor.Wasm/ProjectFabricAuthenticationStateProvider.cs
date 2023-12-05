@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 using ProjectFabric.Blazor.Wasm.Services;
-using ProjectFabric.Google;
 
 namespace ProjectFabric.Blazor.Wasm;
 
