@@ -3,9 +3,11 @@
 @inject IApplicationThemeService ApplicationThemeService
 
 <div class="@Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
-    <NavMenu></NavMenu>
-    @Body
-    <Footer></Footer>
+    <div class="px-20 @Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
+        <NavMenu></NavMenu>
+        @Body
+        <Footer></Footer>
+    </div>
 </div>
 
 @code

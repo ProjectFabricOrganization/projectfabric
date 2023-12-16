@@ -1,4 +1,4 @@
-﻿namespace ProjectFabric.Google
+﻿namespace ProjectFabric.Blazor.Wasm
 {
     public class GoogleResponse
     {

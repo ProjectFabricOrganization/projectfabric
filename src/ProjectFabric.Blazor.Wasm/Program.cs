@@ -25,6 +25,7 @@ builder.Services.AddTransient<FooterViewModel>();
 builder.Services.AddTransient<PricingViewModel>();
 builder.Services.AddTransient<AboutViewModel>();
 builder.Services.AddTransient<RegistrationViewModel>();
+builder.Services.AddTransient<LoginViewModel>();
 
 // services
 builder.Services.AddBlazoredLocalStorageAsSingleton();

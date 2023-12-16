@@ -1,20 +1,20 @@
 ﻿@inherits MvvmComponentBase<NavMenuViewModel>
 
 <!-- Main navigation container -->
-<nav class="flex @ViewModel.Theme.Dark" aria-label="Global">
-    <div class="flex basis-auto p-10 @ViewModel.Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
+<nav class="flex mx-auto flex items-center justify-between gap-x-6 @ViewModel.Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white" aria-label="Global">
+    <div class="flex basis-auto p-10">
         <a class="-m-1.5 p-1.5" href="/">
             <span class="sr-only">@ViewModel.Theme.Organization</span>
             <img src="images/logo.svg" width="120" height="40" class="h-10 w-auto mx-auto bg-white dark:bg-yellow-400" alt="logo">
         </a>
     </div>
-    <div class="flex flex-1 p-6 gap-x-2 justify-center items-center @ViewModel.Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
+    <div class="flex flex-1 p-6 gap-x-2 justify-center items-center">
         @foreach (var navItem in ViewModel.Theme.NavItems)
         {
             <a class="flex items-center rounded-md font-medium h-10 px-8 bg-white dark:bg-gray-900 text-black dark:text-white" href="@navItem.Link">@navItem.Name</a>
         }
     </div>
-    <div class="flex basis-auto p-6 items-center justify-end gap-x-6 shrink-0 @ViewModel.Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
+    <div class="flex basis-auto p-6 items-center justify-end gap-x-6 shrink-0">
         <button id="theme-toggle" 
                 @onclick="ViewModel.ChangeTheme"
                 data-tooltip-target="tooltip-toggle" 
