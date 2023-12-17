@@ -43,6 +43,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectFabric.Razor.Service
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectFabric.Razor.Models", "ProjectFabric.Razor.Models\ProjectFabric.Razor.Models.csproj", "{2FC0E66E-B3DC-4ABD-9133-CD0B80AD87CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{F319B8E1-318C-4048-817C-045221003480}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{2FC0E66E-B3DC-4ABD-9133-CD0B80AD87CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FC0E66E-B3DC-4ABD-9133-CD0B80AD87CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FC0E66E-B3DC-4ABD-9133-CD0B80AD87CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F319B8E1-318C-4048-817C-045221003480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F319B8E1-318C-4048-817C-045221003480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F319B8E1-318C-4048-817C-045221003480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F319B8E1-318C-4048-817C-045221003480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,6 +120,7 @@ Global
 		{54B2B7E4-D069-4B6F-804D-21DBC92A2CB2} = {65570A48-6A5C-4715-BA16-6E9C6B89A6F1}
 		{E194E0FB-29E7-4595-9603-44010F16600C} = {65570A48-6A5C-4715-BA16-6E9C6B89A6F1}
 		{2FC0E66E-B3DC-4ABD-9133-CD0B80AD87CF} = {65570A48-6A5C-4715-BA16-6E9C6B89A6F1}
+		{F319B8E1-318C-4048-817C-045221003480} = {613A3A8C-0D3C-4086-872B-EDAE18D4E835}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8ECAE2C-A1D1-4C9B-A7D8-405CEA0F481C}
