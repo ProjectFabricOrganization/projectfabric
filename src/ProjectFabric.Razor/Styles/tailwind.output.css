@@ -2786,10 +2786,6 @@ input:checked + .toggle-bg {
     margin-top: 5rem;
   }
 
-  .sm\:flex {
-    display: flex;
-  }
-
   .sm\:max-w-md {
     max-width: 28rem;
   }
