@@ -1,4 +1,6 @@
 1.  Frontend
+-	cd C:\repositories\GitHubUser1111111\projectfabric\src\ProjectFabric.Razor
+-	npx tailwindcss -i .\Styles\tailwind.css -o ..\ProjectFabric.Blazor.Wasm\wwwroot\css\app.css
 2.  Backend
 3.  Storages
 4.  Infrastructure

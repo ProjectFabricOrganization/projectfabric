@@ -2847,6 +2847,10 @@ input:checked + .toggle-bg {
     margin-bottom: 0px;
   }
 
+  .md\:w-32 {
+    width: 8rem;
+  }
+
   .md\:w-8\/12 {
     width: 66.666667%;
   }
@@ -2911,6 +2915,10 @@ input:checked + .toggle-bg {
 
   .lg\:flex {
     display: flex;
+  }
+
+  .lg\:w-48 {
+    width: 12rem;
   }
 
   .lg\:w-5\/12 {
