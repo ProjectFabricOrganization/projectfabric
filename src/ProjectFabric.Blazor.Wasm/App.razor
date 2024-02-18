@@ -1,12 +1,22 @@
-﻿@using Microsoft.AspNetCore.Components.Authorization
-@inject IApplicationStateService ApplicationStateService
+﻿@inject IApplicationStateService ApplicationStateService
 @inject IApplicationThemeService ApplicationThemeService
+@inject BrowserService BrowserService
 
 <CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
-            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
-            <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                <NotAuthorized>
+                    @if (context.User.Identity?.IsAuthenticated != true)
+                    {
+                        <RedirectToLogin />
+                    }
+                    else
+                    {
+                        <p role="alert">You are not authorized to access this resource.</p>
+                    }
+                </NotAuthorized>
+            </AuthorizeRouteView>
         </Found>
         <NotFound>
             <PageTitle>Not found</PageTitle>
@@ -22,9 +32,13 @@
     protected override async Task OnInitializedAsync()
     {
         // entry point
-        
+        var organizationId = "addinol reseller";
+
         // load organization
-        await ApplicationThemeService.Load("addinol reseller");
+        await ApplicationThemeService.Load(organizationId);
+
+        // browser
+        await BrowserService.Initialize();
     }
 
 }
