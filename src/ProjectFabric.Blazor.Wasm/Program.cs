@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using ProjectFabric.Blazor.Wasm;
 using ProjectFabric.Blazor.Wasm.Auth;
+using ProjectFabric.Blazor.Wasm.Services;
 using ProjectFabric.Blazor.Wasm.ViewModels;
 using ProjectFabric.Razor.Services.Implementations;
 using ProjectFabric.Razor.Services.Interfaces;
@@ -27,6 +28,9 @@ builder.Services.AddTransient<PricingViewModel>();
 builder.Services.AddTransient<AboutViewModel>();
 builder.Services.AddTransient<RegistrationViewModel>();
 builder.Services.AddTransient<LoginViewModel>();
+
+// browser
+builder.Services.AddSingleton<BrowserService>(); 
 
 // services
 builder.Services.AddBlazoredLocalStorageAsSingleton();

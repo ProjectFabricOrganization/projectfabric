@@ -1,5 +1,6 @@
 ﻿@inject IApplicationStateService ApplicationStateService
 @inject IApplicationThemeService ApplicationThemeService
+@inject BrowserService BrowserService
 
 <CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
@@ -31,9 +32,13 @@
     protected override async Task OnInitializedAsync()
     {
         // entry point
-        
+        var organizationId = "addinol reseller";
+
         // load organization
-        await ApplicationThemeService.Load("addinol reseller");
+        await ApplicationThemeService.Load(organizationId);
+
+        // browser
+        await BrowserService.Initialize();
     }
 
 }
