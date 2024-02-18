@@ -1,3 +1,3 @@
-﻿function alertTest() {
-    alert("ALLLERT!!!!");
+﻿export function showAlert(message) {
+    alert(message);
 }
