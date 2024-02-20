@@ -32,41 +32,19 @@ public class ApplicationThemeService : IApplicationThemeService
             }
         },
         {
-            "arch-gen", new Theme
-            {
-                Organization = "Architecture Generator",
-                OrganizationDetails = "Generate IT solution with apply diagram.",
-                Logo = "images/logo.svg",
-                //Styles = new Dictionary<string, string>
-                //{
-                //    { "bg", "bg-white dark:bg-gray-900 text-black dark:text-white" },
-                //    { "logo", "bg-white dark:bg-yellow-400" },
-                //    { "text", "text-neutral-600 dark:text-white" }
-                //},
-                Dark = "dark",
-                Tenant = "dev",
-                NavItems = new ObservableCollection<NavItem>(new[]
-                {
-                    new NavItem { Name = "Home", Link = "./" },
-                    new NavItem { Name = "Pricing", Link = "./pricing" },
-                    new NavItem { Name = "About", Link = "./about" }
-                }),
-
-            }
-        },
-        {
             "portfolio", new Theme
             {
                 Organization = "IT Engineer Portfolio",
                 OrganizationDetails = "Self presentation portfolio.",
-                Logo = "images/logo.svg",
-                Dark = "dark",
+                Logo = "images/rocket.svg",
+                Dark = null,
                 Tenant = "dev",
                 NavItems = new ObservableCollection<NavItem>(new[]
                 {
-                    new NavItem { Name = "Home", Link = "./" },
+                    new NavItem { Name = "About me", Link = "./" },
                     new NavItem { Name = "Technical skills", Link = "./pricing" },
-                    new NavItem { Name = "About", Link = "./about" }
+                    new NavItem { Name = "Portfolio", Link = "./about" },
+                    new NavItem { Name = "CV", Link = "./about" }
                 }),
 
             }

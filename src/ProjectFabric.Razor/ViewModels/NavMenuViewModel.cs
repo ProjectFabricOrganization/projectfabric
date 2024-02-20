@@ -52,6 +52,8 @@ public partial class NavMenuViewModel(IApplicationStateService applicationStateS
     [RelayCommand]
     public void ChangeTheme()
     {
-        Theme.Dark = Theme.Dark == "dark" ? null : "dark";
+        var isDark = Theme.Dark == "dark";
+        Theme.Dark = isDark ? null : "dark";
+        Console.WriteLine($"Theme changed to {Theme.Dark}");
     }
 }
