@@ -7,21 +7,15 @@ using ProjectFabric.Razor.Services.Interfaces;
 
 namespace ProjectFabric.Razor.ViewModels;
 
-public partial class WallPaperViewModel : ViewModelBase
+public partial class WallPaperViewModel(IApplicationStateService applicationStateService,
+        IApplicationThemeService applicationThemeService, NavigationManager navigationManager)
+    : ViewModelBase(applicationStateService, applicationThemeService)
 {
-    private readonly NavigationManager _navigationManager;
-
     [ObservableProperty] private Theme _theme = new();
     [ObservableProperty] private string _startUsingText;
     [ObservableProperty] private string _joinText;
     [ObservableProperty] private string _subscribeText;
-    public WallPaperViewModel(IApplicationStateService applicationStateService,
-        IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(
-        applicationStateService, applicationThemeService)
-    {
-        _navigationManager = navigationManager;
-    }
-    
+
     public override Task OnInitializedAsync()
     {
         if (ApplicationStateService.State == null)
@@ -49,24 +43,24 @@ public partial class WallPaperViewModel : ViewModelBase
     [RelayCommand]
     public void StartUsing()
     {
-        _navigationManager.NavigateTo("registration");
+        navigationManager.NavigateTo("registration");
     }
 
     [RelayCommand]
     public void Join()
     {
-        _navigationManager.NavigateTo("registration");
+        navigationManager.NavigateTo("registration");
     }
 
     [RelayCommand]
     public void Subscribe()
     {
-        _navigationManager.NavigateTo("registration");
+        navigationManager.NavigateTo("registration");
     }
 
     [RelayCommand]
     public void Submit(string par)
     {
-        _navigationManager.NavigateTo("registration");
+        navigationManager.NavigateTo("registration");
     }
 }
