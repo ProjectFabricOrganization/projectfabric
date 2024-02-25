@@ -28,6 +28,8 @@ builder.Services.AddTransient<PricingViewModel>();
 builder.Services.AddTransient<AboutViewModel>();
 builder.Services.AddTransient<RegistrationViewModel>();
 builder.Services.AddTransient<LoginViewModel>();
+builder.Services.AddTransient<AdminDashboardViewModel>();
+builder.Services.AddTransient<AdminNavMenuViewModel>();
 
 // browser
 builder.Services.AddSingleton<BrowserService>(); 

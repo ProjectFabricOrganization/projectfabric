@@ -1,5 +1,4 @@
-﻿@inject IApplicationStateService ApplicationStateService
-@inject IApplicationThemeService ApplicationThemeService
+﻿@inject IApplicationThemeService ApplicationThemeService
 @inject BrowserService BrowserService
 
 <CascadingAuthenticationState>
@@ -29,16 +28,21 @@
 
 @code {
 
+    /// <summary>
+    /// Entry point
+    /// </summary>
+    /// <returns></returns>
+    protected override void OnInitialized()
+    {
+        // load theme
+        var sec = DateTime.Now.Second;
+        var organizationId = sec > 30 ? "addinol reseller" : "portfolio";
+        ApplicationThemeService.Load("addinol reseller");
+        Console.WriteLine($"Organization theme loaded. OrganizationName: {ApplicationThemeService.Theme.Organization}");
+    }
+
     protected override async Task OnInitializedAsync()
     {
-        // entry point
-        // "addinol reseller", "portfolio";
-        var organizationId = "addinol reseller";
-        
-        // load theme
-        var theme = await ApplicationThemeService.Load(organizationId);
-        Console.WriteLine($"Theme loaded. Organization: {theme.Organization}");
-
         // browser
         await BrowserService.Initialize();
     }

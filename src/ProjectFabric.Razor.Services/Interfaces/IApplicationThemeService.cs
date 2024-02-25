@@ -6,7 +6,9 @@ public interface IApplicationThemeService
 {
     Theme Theme { get; }
 
-    Task<Theme> Load(string organizationId);
+    void Load(string organizationId);
+
+    void DarkMode(bool isDark);
 
     Task<Theme> Generate();
 }

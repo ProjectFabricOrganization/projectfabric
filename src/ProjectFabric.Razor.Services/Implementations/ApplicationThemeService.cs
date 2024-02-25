@@ -12,16 +12,8 @@ public class ApplicationThemeService : IApplicationThemeService
             "addinol reseller", new Theme
             {
                 Organization = "Addinol Reseller",
-                OrganizationDetails = "We are provide AI-generated business digital maintenance in seconds",
                 Logo = "images/logo.svg",
-                //Styles = new Dictionary<string, string>
-                //{
-                //    { "bg", "bg-white dark:bg-gray-900 text-black dark:text-white" },
-                //    { "logo", "bg-white dark:bg-yellow-400" },
-                //    { "text", "text-neutral-600 dark:text-white" }
-                //},
                 Dark = "dark",
-                Tenant = "dev",
                 NavItems = new ObservableCollection<NavItem>(new[]
                 {
                     new NavItem { Name = "Home", Link = "./" },
@@ -35,10 +27,8 @@ public class ApplicationThemeService : IApplicationThemeService
             "portfolio", new Theme
             {
                 Organization = "IT Engineer Portfolio",
-                OrganizationDetails = "Self presentation portfolio.",
                 Logo = "images/rocket.svg",
                 Dark = null,
-                Tenant = "dev",
                 NavItems = new ObservableCollection<NavItem>(new[]
                 {
                     new NavItem { Name = "About me", Link = "./" },
@@ -53,33 +43,17 @@ public class ApplicationThemeService : IApplicationThemeService
 
     public Theme Theme { get; private set; }
 
-    public Task<Theme> Load(string organizationId)
+    public void Load(string organizationId)
     {
-        if (_themes.TryGetValue(organizationId, out var theme))
-        {
-            Theme = theme;
-            return Task.FromResult(theme);
-        }
+        if (!_themes.TryGetValue(organizationId, out var theme))
+            throw new Exception($"Load theme. Unknown {nameof(organizationId)}: {organizationId}");
 
-        // default theme
-        //var theme = new Theme
-        //{
-        //    LogoImg = "images/document-svgrepo-com.svg",
-        //    Dashboard = "Dashboard",
-        //    Team = "Teams",
-        //    Projects = "Games",
-        //    CartImg = "images/pie-chart-svgrepo-com.svg",
-        //    AvatarImg = "images/cell-phone-svgrepo-com.svg",
-        //    ThemeImg = "images/creativity-svgrepo-com.svg",
-        //    HeadMessage = "The unique games portal",
-        //    DetailsMessage = "Free games, teams and servers",
-        //    ButtonText = "Join",
-        //    MainColor = "bg-fuchsia-100"
-        //};
+        Theme = theme;
+    }
 
-        //return theme;
-
-        throw new Exception($"Unknown {nameof(organizationId)}: {organizationId}");
+    public void DarkMode(bool isDark)
+    {
+        Theme.Dark = isDark ? "dark" : null;
     }
 
     public Task<Theme> Generate()

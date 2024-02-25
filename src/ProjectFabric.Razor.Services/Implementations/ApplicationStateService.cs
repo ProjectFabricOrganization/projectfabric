@@ -4,28 +4,23 @@ using ProjectFabric.Razor.Services.Interfaces;
 
 namespace ProjectFabric.Razor.Services.Implementations;
 
-public class ApplicationStateService : IApplicationStateService
+public class ApplicationStateService(ILocalStorageService localStorageService) : IApplicationStateService
 {
-    public ApplicationStateService()
+    public ApplicationState State { get; } = new();
+
+    public async Task ChangeTheme(string theme)
     {
-        State = new ApplicationState();
+        if (string.IsNullOrWhiteSpace(theme))
+            throw new ArgumentNullException(nameof(theme));
+
+        await localStorageService.SetItemAsStringAsync("theme", theme);
+        Console.WriteLine($"Theme changed to {theme}");
     }
 
-    public ApplicationState State { get; }
-    
-    public async Task ChangeTheme()
+    public async Task<string> LoadOrganizationId(string clientId)
     {
-        //var theme = await _localStorageService.GetItemAsStringAsync("theme");
-        //if (theme == "dark")
-        //{
-        //    State.Theme.Dark = null;
-        //    await _localStorageService.SetItemAsStringAsync("theme", "light");
-        //}
-        //else
-        //{
-        //    State.Theme.Dark = "dark";
-        //    await _localStorageService.SetItemAsStringAsync("theme", "dark");
-        //}
+        var theme = await localStorageService.GetItemAsStringAsync("theme");
+        return theme ?? "addinol reseller";
     }
 
     public void SubmitRegistrationForm()

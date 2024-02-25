@@ -1,0 +1,39 @@
+﻿@inherits MvvmComponentBase<AdminNavMenuViewModel>
+
+<!-- Main navigation container -->
+<nav class="flex mx-auto items-center justify-between gap-x-6 transition-all duration-300 @ViewModel.Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white" aria-label="Global">
+    <div class="flex basis-auto p-10 px-2 sm:px-6 lg:px-8">
+        <a class="-m-1.5 p-1.5" href="./">
+            <span class="sr-only">@ViewModel.Theme.Organization</span>
+            <img src="@ViewModel.Theme.Logo" class="h-10 w-44 max-w-none bg-white dark:bg-yellow-400 fill-cyan-500" alt="logo">
+
+        </a>
+    </div>
+    <div class="flex flex-1 p-6 gap-x-2 justify-center items-center hidden lg:flex">
+        <a class="flex items-center rounded-md font-medium h-10 px-8 bg-white dark:bg-gray-900 text-black dark:text-white" href="\">Products</a>
+        <a class="flex items-center rounded-md font-medium h-10 px-8 bg-white dark:bg-gray-900 text-black dark:text-white" href="\">Services</a>
+        <a class="flex items-center rounded-md font-medium h-10 px-8 bg-white dark:bg-gray-900 text-black dark:text-white" href="\">Features</a>
+        <a class="flex items-center rounded-md font-medium h-10 px-8 bg-white dark:bg-gray-900 text-black dark:text-white" href="\">Analytics</a>
+    </div>
+    <div class="flex basis-auto items-end justify-end gap-x-6 p-10 px-2 sm:px-6 lg:px-8">
+        <button @onclick="ViewModel.ChangeTheme"
+                type="button"
+                class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 bg-white dark:bg-gray-900 text-black dark:text-white">
+            <svg id="theme-toggle-dark-icon" class="w-8 h-8 hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="w-8 h-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-11a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm0 12a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1ZM4.343 5.757a1 1 0 0 0 1.414-1.414L4.343 2.929a1 1 0 0 0-1.414 1.414l1.414 1.414Zm11.314 8.486a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM4 10a1 1 0 0 0-1-1H1a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm15-1h-2a1 1 0 1 0 0 2h2a1 1 0 0 0 0-2ZM4.343 14.243l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414a1 1 0 0 0-1.414-1.414ZM14.95 6.05a1 1 0 0 0 .707-.293l1.414-1.414a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 .707 1.707Z"></path>
+            </svg>
+            <span class="sr-only">Toggle dark mode</span>
+        </button>
+
+        <button @onclick="ViewModel.Logout"
+                type="button"
+                class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 bg-white dark:bg-gray-900 text-black dark:text-white">
+            <svg class="w-8 h-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M12.207 9H5V7h7.136L11.05 5.914 12.464 4.5 16 8.036l-3.536 3.535-1.414-1.414L12.207 9zM10 4H8V2H2v12h6v-2h2v4H0V0h10v4z" fill-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
+</nav>
