@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
@@ -7,11 +8,12 @@ using ProjectFabric.Razor.Services.Interfaces;
 
 namespace ProjectFabric.Razor.ViewModels;
 
-public partial class NavMenuViewModel(IApplicationStateService applicationStateService,
+public partial class FeatureViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager)
     : ViewModelBase(applicationStateService, applicationThemeService)
 {
     [ObservableProperty] private Theme _theme;
+    [ObservableProperty] private ObservableCollection<NavItem> _navItems = new();
 
     public override Task OnInitializedAsync()
     {
@@ -22,7 +24,7 @@ public partial class NavMenuViewModel(IApplicationStateService applicationStateS
             throw new Exception("Theme is null");
 
         Theme = ApplicationThemeService.Theme;
-        
+
         return Task.CompletedTask;
     }
 
@@ -30,26 +32,5 @@ public partial class NavMenuViewModel(IApplicationStateService applicationStateS
     public void GetStarted()
     {
         navigationManager.NavigateTo("./registration");
-    }
-    
-    [RelayCommand]
-    public void Logout()
-    {
-        navigationManager.NavigateToLogout("./authentication/logout-callback");
-    }
-
-    [RelayCommand]
-    public void Login()
-    {
-        //navigationManager.NavigateToLogin("./authentication/login");
-        navigationManager.NavigateTo("./admin");
-    }
-
-    [RelayCommand]
-    public void ChangeTheme()
-    {
-        var isDark = Theme.Dark == "dark";
-        ApplicationThemeService.DarkMode(!isDark);
-        Console.WriteLine($"Theme changed to {Theme.Dark}");
     }
 }
