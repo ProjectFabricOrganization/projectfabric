@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Components;
 using ProjectFabric.Razor.Models;
 using ProjectFabric.Razor.Services.Interfaces;
+using System.ComponentModel;
 
 namespace ProjectFabric.Razor.ViewModels;
 
@@ -10,7 +10,7 @@ public partial class AdminSidebarViewModel(IApplicationStateService applicationS
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager)
     : ViewModelBase(applicationStateService, applicationThemeService)
 {
-    [ObservableProperty] private Theme _theme;
+    [ObservableProperty] private Theme theme;
 
     public override Task OnInitializedAsync()
     {
@@ -21,21 +21,31 @@ public partial class AdminSidebarViewModel(IApplicationStateService applicationS
             throw new Exception("Theme is null");
 
         Theme = ApplicationThemeService.Theme;
-
+        Theme.PropertyChanged += Theme_PropertyChanged;
         return Task.CompletedTask;
     }
-
-    [RelayCommand]
-    public void Logout()
+    
+    private void Theme_PropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
-        navigationManager.NavigateTo("/");
+        NotifyStateChanged();
     }
 
-    [RelayCommand]
-    public void ChangeTheme()
-    {
-        var isDark = Theme.Dark == "dark";
-        ApplicationThemeService.DarkMode(!isDark);
-        Console.WriteLine($"Theme changed to {Theme.Dark}");
-    }
+
+    //[RelayCommand]
+    //public void ShowDashboard()
+    //{
+    //    navigationManager.NavigateTo("./admin");
+    //}
+
+    //[RelayCommand]
+    //public void ShowSocialTraffic()
+    //{
+    //    navigationManager.NavigateTo("./social-traffic");
+    //}
+
+    //[RelayCommand]
+    //public void ShowRecentActivities()
+    //{
+    //    navigationManager.NavigateTo("./recent-activities");
+    //}
 }

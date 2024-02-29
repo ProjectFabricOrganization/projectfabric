@@ -20,7 +20,21 @@ public class ApplicationThemeService : IApplicationThemeService
                     new NavItem { Name = "Pricing", Link = "./pricing" },
                     new NavItem { Name = "About", Link = "./about" }
                 }),
-
+                AdminTheme = new AdminTheme
+                {
+                    SidebarMainItems = new ObservableCollection<NavItem>(new[]
+                    {
+                        new NavItem { Name = "Dashboard", Link = "./dashboard" },
+                        new NavItem { Name = "Social Traffic", Link = "./social-traffic" },
+                        new NavItem { Name = "Recent Activities", Link = "./recent-activities" }
+                    }),
+                    SidebarSettingsItems = new ObservableCollection<NavItem>(new[]
+                    {
+                        new NavItem { Name = "Home", Link = "./dashboard" },
+                        new NavItem { Name = "Pricing", Link = "./dashboard" },
+                        new NavItem { Name = "About", Link = "./dashboard" }
+                    })
+                }
             }
         },
         {
@@ -36,18 +50,33 @@ public class ApplicationThemeService : IApplicationThemeService
                     new NavItem { Name = "Portfolio", Link = "./about" },
                     new NavItem { Name = "CV", Link = "./about" }
                 }),
-
+                AdminTheme = new AdminTheme()
+                {
+                    SidebarMainItems = new ObservableCollection<NavItem>(new[]
+                    {
+                        new NavItem { Name = "Dashboard", Link = "./dashboard" },
+                        new NavItem { Name = "Social Traffic", Link = "./social-traffic" },
+                        new NavItem { Name = "Recent Activities", Link = "./recent-activities" }
+                    }),
+                    SidebarSettingsItems = new ObservableCollection<NavItem>(new[]
+                    {
+                        new NavItem { Name = "Home", Link = "./dashboard" },
+                        new NavItem { Name = "Pricing", Link = "./dashboard" },
+                        new NavItem { Name = "About", Link = "./dashboard" }
+                    })
+                }
             }
         },
     };
-
+    
     public Theme Theme { get; private set; }
+    public AdminTheme AdminTheme { get; private set; }
 
     public void Load(string organizationId)
     {
         if (!_themes.TryGetValue(organizationId, out var theme))
             throw new Exception($"Load theme. Unknown {nameof(organizationId)}: {organizationId}");
-
+        
         Theme = theme;
     }
 
