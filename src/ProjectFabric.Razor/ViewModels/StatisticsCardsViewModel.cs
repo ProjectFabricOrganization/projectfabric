@@ -3,15 +3,21 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Components;
 using ProjectFabric.Razor.Models;
 using ProjectFabric.Razor.Services.Interfaces;
-using System.ComponentModel;
 
 namespace ProjectFabric.Razor.ViewModels;
 
-public partial class AdminDashboardViewModel(IApplicationStateService applicationStateService,
-        IApplicationThemeService applicationThemeService, NavigationManager navigationManager)
-    : ViewModelBase(applicationStateService, applicationThemeService)
+public partial class StatisticsCardsViewModel : ViewModelBase
 {
-    [ObservableProperty] private Theme _theme;
+    private readonly NavigationManager _navigationManager;
+
+    [ObservableProperty] private Theme _theme = new();
+
+    public StatisticsCardsViewModel(IApplicationStateService applicationStateService,
+        IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(
+        applicationStateService, applicationThemeService)
+    {
+        _navigationManager = navigationManager;
+    }
 
     public override Task OnInitializedAsync()
     {
@@ -22,18 +28,14 @@ public partial class AdminDashboardViewModel(IApplicationStateService applicatio
             throw new Exception("Theme is null");
 
         Theme = ApplicationThemeService.Theme;
+
         Theme.PropertyChanged += Theme_PropertyChanged;
+
         return Task.CompletedTask;
     }
 
-    private void Theme_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    private void Theme_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
         NotifyStateChanged();
-    }
-
-    [RelayCommand]
-    public void GetStarted()
-    {
-        navigationManager.NavigateTo("./registration");
     }
 }

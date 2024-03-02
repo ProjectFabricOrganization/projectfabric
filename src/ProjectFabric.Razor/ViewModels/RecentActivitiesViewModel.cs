@@ -1,13 +1,13 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Components;
 using ProjectFabric.Razor.Models;
 using ProjectFabric.Razor.Services.Interfaces;
-using System.ComponentModel;
 
 namespace ProjectFabric.Razor.ViewModels;
 
-public partial class AdminDashboardViewModel(IApplicationStateService applicationStateService,
+public partial class RecentActivitiesViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager)
     : ViewModelBase(applicationStateService, applicationThemeService)
 {

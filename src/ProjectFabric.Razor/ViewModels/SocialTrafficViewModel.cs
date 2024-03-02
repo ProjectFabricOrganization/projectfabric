@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace ProjectFabric.Razor.ViewModels;
 
-public partial class AdminDashboardViewModel(IApplicationStateService applicationStateService,
+public partial class SocialTrafficViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager)
     : ViewModelBase(applicationStateService, applicationThemeService)
 {

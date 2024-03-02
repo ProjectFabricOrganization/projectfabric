@@ -20,7 +20,47 @@ public class ApplicationThemeService : IApplicationThemeService
                     new NavItem { Name = "Pricing", Link = "./pricing" },
                     new NavItem { Name = "About", Link = "./about" }
                 }),
-
+                AdminTheme = new AdminTheme
+                {
+                    SidebarMainItems = new ObservableCollection<NavItem>(new[]
+                    {
+                        new NavItem { Icon = "images/dashboard.svg", Name = "Dashboard", Link = "./admin/dashboard", Notification = "Up"},
+                        new NavItem
+                        {
+                            Icon = "images/business-card.svg", Name = "Social Traffic", Link = "./admin/social-traffic", Notification = "New"
+                        },
+                        new NavItem
+                        {
+                            Icon = "images/star.svg", Name = "Recent Activities",
+                            Link = "./admin/recent-activities", Notification = "17"
+                        },
+                        new NavItem
+                        {
+                            Icon = "images/briefcase.svg", Name = "Clients",
+                            Link = "./admin/clients", Notification = "+27"
+                        },
+                        new NavItem
+                        {
+                            Icon = "images/notifications.svg", Name = "Notifications",
+                            Link = "./admin/notifications", Notification = "1.2k"
+                        }
+                    }),
+                    SidebarSettingsItems = new ObservableCollection<NavItem>(new[]
+                    {
+                        new NavItem { Icon = "images/key.svg", Name = "Account", Link = "./admin/account" },
+                        new NavItem { Icon = "images/settings.svg", Name = "Settings", Link = "./admin/settings" },
+                    }),
+                    StatisticCards = new ObservableCollection<StatisticCard>(new[]
+                    {
+                        new StatisticCard
+                            { Icon = "images/eye.svg", MetricName = "Visitors", MetricValue = "1,257" },
+                        new StatisticCard { Icon = "images/order.svg", MetricName = "Orders", MetricValue = "557" },
+                        new StatisticCard
+                            { Icon = "images/sale.svg", MetricName = "Sales", MetricValue = "$11,257" },
+                        new StatisticCard
+                            { Icon = "images/wallet.svg", MetricName = "Wallet", MetricValue = "$75,257" }
+                    })
+                }
             }
         },
         {
@@ -36,10 +76,26 @@ public class ApplicationThemeService : IApplicationThemeService
                     new NavItem { Name = "Portfolio", Link = "./about" },
                     new NavItem { Name = "CV", Link = "./about" }
                 }),
-
+                AdminTheme = new AdminTheme
+                {
+                    SidebarMainItems = new ObservableCollection<NavItem>(new[]
+                    {
+                        new NavItem { Name = "Dashboard", Link = "./dashboard" },
+                        new NavItem { Name = "Social Traffic", Link = "./social-traffic" },
+                        new NavItem { Name = "Recent Activities", Link = "./recent-activities" }
+                    }),
+                    SidebarSettingsItems = new ObservableCollection<NavItem>(new[]
+                    {
+                        new NavItem { Name = "Home", Link = "./dashboard" },
+                        new NavItem { Name = "Pricing", Link = "./dashboard" },
+                        new NavItem { Name = "About", Link = "./dashboard" }
+                    })
+                }
             }
-        },
+        }
     };
+
+    public AdminTheme AdminTheme { get; }
 
     public Theme Theme { get; private set; }
 

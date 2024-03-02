@@ -1,10 +1,16 @@
 ﻿@inherits LayoutComponentBase
-@inject IApplicationThemeService ApplicationThemeService
+@inject IApplicationThemeService ApplicationThemeService;
 
 <div class="@Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
     <AdminNavMenu></AdminNavMenu>
-    @Body
+    <div class="min-h-screen flex flex-row flex-auto flex-shrink-0 antialiased @Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
+        <AdminSidebar></AdminSidebar>
+        <div class="flex flex-col w-full transition-all duration-300 @Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
+            @Body
+        </div>
+    </div>
 </div>
+
 
 @code
 {

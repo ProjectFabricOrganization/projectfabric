@@ -1,0 +1,7 @@
+﻿@inherits MvvmComponentBase<StatisticsCardsViewModel>
+<div class="grid grid-cols-1 h-10 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4 @ViewModel.Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
+    @foreach (var item in @ViewModel.Theme.AdminTheme.StatisticCards)
+    {
+        <StatisticCard Icon="@item.Icon" Name="@item.MetricName" Value="@item.MetricValue"></StatisticCard>
+    }
+</div>
