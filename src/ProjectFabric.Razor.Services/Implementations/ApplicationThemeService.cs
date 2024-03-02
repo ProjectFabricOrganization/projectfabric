@@ -36,6 +36,11 @@ public class ApplicationThemeService : IApplicationThemeService
                         },
                         new NavItem
                         {
+                            Icon = "images/briefcase.svg", Name = "Clients",
+                            Link = "./admin/clients", Notification = "+27"
+                        },
+                        new NavItem
+                        {
                             Icon = "images/notifications.svg", Name = "Notifications",
                             Link = "./admin/notifications", Notification = "1.2k"
                         }

@@ -31,7 +31,10 @@ builder.Services.AddTransient<LoginViewModel>();
 builder.Services.AddTransient<AdminDashboardViewModel>();
 builder.Services.AddTransient<AdminNavMenuViewModel>();
 builder.Services.AddTransient<AdminSidebarViewModel>();
+builder.Services.AddTransient<SocialTrafficViewModel>();
 builder.Services.AddTransient<StatisticsCardsViewModel>();
+builder.Services.AddTransient<RecentActivitiesViewModel>();
+builder.Services.AddTransient<ClientTableViewModel>();
 
 // browser
 builder.Services.AddSingleton<BrowserService>(); 
