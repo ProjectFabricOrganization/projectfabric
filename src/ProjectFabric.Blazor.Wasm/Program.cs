@@ -28,13 +28,16 @@ builder.Services.AddTransient<PricingViewModel>();
 builder.Services.AddTransient<AboutViewModel>();
 builder.Services.AddTransient<RegistrationViewModel>();
 builder.Services.AddTransient<LoginViewModel>();
-builder.Services.AddTransient<AdminDashboardViewModel>();
+builder.Services.AddTransient<DashboardViewModel>();
 builder.Services.AddTransient<AdminNavMenuViewModel>();
 builder.Services.AddTransient<AdminSidebarViewModel>();
 builder.Services.AddTransient<SocialTrafficViewModel>();
 builder.Services.AddTransient<StatisticsCardsViewModel>();
 builder.Services.AddTransient<RecentActivitiesViewModel>();
 builder.Services.AddTransient<ClientTableViewModel>();
+builder.Services.AddTransient<ProfileViewModel>();
+builder.Services.AddTransient<SettingsViewModel>();
+builder.Services.AddTransient<NotificationsViewModel>();
 
 // browser
 builder.Services.AddSingleton<BrowserService>(); 
