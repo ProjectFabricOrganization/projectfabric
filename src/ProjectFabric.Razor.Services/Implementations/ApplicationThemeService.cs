@@ -47,8 +47,8 @@ public class ApplicationThemeService : IApplicationThemeService
                     }),
                     SidebarSettingsItems = new ObservableCollection<NavItem>(new[]
                     {
-                        new NavItem { Icon = "images/key.svg", Name = "Account", Link = "./admin/account" },
-                        new NavItem { Icon = "images/settings.svg", Name = "Settings", Link = "./admin/settings" },
+                        new NavItem { Icon = "images/key.svg", Name = "Account", Link = "./profile" },
+                        new NavItem { Icon = "images/settings.svg", Name = "Settings", Link = "./settings" },
                     }),
                     StatisticCards = new ObservableCollection<StatisticCard>(new[]
                     {

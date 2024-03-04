@@ -35,6 +35,9 @@ builder.Services.AddTransient<SocialTrafficViewModel>();
 builder.Services.AddTransient<StatisticsCardsViewModel>();
 builder.Services.AddTransient<RecentActivitiesViewModel>();
 builder.Services.AddTransient<ClientTableViewModel>();
+builder.Services.AddTransient<ProfileViewModel>();
+builder.Services.AddTransient<SettingsViewModel>();
+builder.Services.AddTransient<NotificationsViewModel>();
 
 // browser
 builder.Services.AddSingleton<BrowserService>(); 
