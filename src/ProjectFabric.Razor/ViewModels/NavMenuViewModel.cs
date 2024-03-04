@@ -42,7 +42,7 @@ public partial class NavMenuViewModel(IApplicationStateService applicationStateS
     public void Login()
     {
         //navigationManager.NavigateToLogin("./authentication/login");
-        navigationManager.NavigateTo("./admin");
+        navigationManager.NavigateTo("./admin/dashboard");
     }
 
     [RelayCommand]
