@@ -16,7 +16,7 @@ module.exports = {
             },
             fontFamily: {
                 display: 'Oswald, ui-serif',
-                sans: 'Graphik", "Times New Roman',
+                sans: 'Passion One',
                 serif: 'Merriweather", "serif',
             }
         },

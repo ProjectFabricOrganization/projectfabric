@@ -36,8 +36,8 @@
     {
         // load theme
         var sec = DateTime.Now.Second;
-        var organizationId = sec > 30 ? "addinol reseller" : "portfolio";
-        ApplicationThemeService.Load("addinol reseller");
+        var organizationId = sec > 30 ? "EAS" : "portfolio";
+        ApplicationThemeService.Load("EAS");
         Console.WriteLine($"Organization theme loaded. OrganizationName: {ApplicationThemeService.Theme.Organization}");
     }
 

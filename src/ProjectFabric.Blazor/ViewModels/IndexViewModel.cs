@@ -21,7 +21,7 @@ public class IndexViewModel : ViewModelBase
     public override Task OnInitializedAsync()
     {
         // TODO: get organization
-        Organization = "Addinol Reseller";
+        Organization = "EAS";
 
         // TODO: get user cookie 
         AccessToken = Guid.NewGuid().ToString();

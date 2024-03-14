@@ -9,10 +9,10 @@ public class ApplicationThemeService : IApplicationThemeService
     private readonly Dictionary<string, Theme> _themes = new()
     {
         {
-            "addinol reseller", new Theme
+            "EAS", new Theme
             {
-                Organization = "Addinol Reseller",
-                Logo = "images/logo.svg",
+                Organization = "EAS",
+                Logo = "images/simple-logo.svg",
                 Dark = "dark",
                 NavItems = new ObservableCollection<NavItem>(new[]
                 {
