@@ -1681,12 +1681,12 @@ input:checked + .toggle-bg {
   min-width: 0px;
 }
 
-.min-w-12 {
-  min-width: 3rem;
-}
-
 .min-w-20 {
   min-width: 5rem;
+}
+
+.min-w-24 {
+  min-width: 6rem;
 }
 
 .max-w-2xl {
@@ -3657,6 +3657,18 @@ input:checked + .toggle-bg {
 
   .xl\:pt-80 {
     padding-top: 20rem;
+  }
+
+  .xl\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
