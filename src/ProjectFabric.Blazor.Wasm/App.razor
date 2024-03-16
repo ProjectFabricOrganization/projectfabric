@@ -8,7 +8,7 @@
                 <NotAuthorized>
                     @if (context.User.Identity?.IsAuthenticated != true)
                     {
-                        <RedirectToLogin />
+                        <RedirectToLogin/>
                     }
                     else
                     {
@@ -29,22 +29,20 @@
 @code {
 
     /// <summary>
-    /// Entry point
+    ///     Entry point
     /// </summary>
     /// <returns></returns>
     protected override void OnInitialized()
     {
         // load theme
-        var sec = DateTime.Now.Second;
-        var organizationId = sec > 30 ? "addinol reseller" : "portfolio";
-        ApplicationThemeService.Load("addinol reseller");
-        Console.WriteLine($"Organization theme loaded. OrganizationName: {ApplicationThemeService.Theme.Organization}");
+        ApplicationThemeService.LoadDefault();
+        Console.WriteLine($"Organization default theme loaded. OrganizationName: {ApplicationThemeService.Theme.Organization}");
     }
 
     protected override async Task OnInitializedAsync()
     {
         // browser
         await BrowserService.Initialize();
+        Console.WriteLine("Browser service loaded.");
     }
-
 }

@@ -20,7 +20,7 @@ public class ApplicationStateService(ILocalStorageService localStorageService) :
     public async Task<string> LoadOrganizationId(string clientId)
     {
         var theme = await localStorageService.GetItemAsStringAsync("theme");
-        return theme ?? "addinol reseller";
+        return theme ?? "EAS";
     }
 
     public void SubmitRegistrationForm()

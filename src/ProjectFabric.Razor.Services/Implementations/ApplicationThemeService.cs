@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using Blazored.LocalStorage;
 using ProjectFabric.Razor.Models;
 using ProjectFabric.Razor.Services.Interfaces;
 
@@ -6,13 +7,17 @@ namespace ProjectFabric.Razor.Services.Implementations;
 
 public class ApplicationThemeService : IApplicationThemeService
 {
+    private const string OrganizationId = "organizationId";
+
+    private readonly ILocalStorageService _localStorage;
+
     private readonly Dictionary<string, Theme> _themes = new()
     {
         {
-            "addinol reseller", new Theme
+            "Enterprise Automation System", new Theme
             {
-                Organization = "Addinol Reseller",
-                Logo = "images/logo.svg",
+                Organization = "Enterprise Automation System",
+                Logo = "images/simple-logo.svg",
                 Dark = "dark",
                 NavItems = new ObservableCollection<NavItem>(new[]
                 {
@@ -64,7 +69,7 @@ public class ApplicationThemeService : IApplicationThemeService
             }
         },
         {
-            "portfolio", new Theme
+            "IT Engineer Portfolio", new Theme
             {
                 Organization = "IT Engineer Portfolio",
                 Logo = "images/rocket.svg",
@@ -96,10 +101,29 @@ public class ApplicationThemeService : IApplicationThemeService
     };
 
     public AdminTheme AdminTheme { get; }
-
+    
     public Theme Theme { get; private set; }
 
-    public void Load(string organizationId)
+    public ApplicationThemeService(ILocalStorageService localStorage)
+    {
+        _localStorage = localStorage;
+    }
+
+    public void LoadDefault()
+    {
+        var organizationId = "Enterprise Automation System"; // _localStorage.GetItemAsStringAsync(OrganizationId).Result;
+        if (organizationId != null)
+        {
+            FindTheme(organizationId);
+            return;
+        }
+
+        var defaultTheme = _themes.First();
+        //_localStorage.SetItemAsStringAsync(OrganizationId, defaultTheme.Key);
+        Theme = defaultTheme.Value;
+    }
+
+    public void FindTheme(string organizationId)
     {
         if (!_themes.TryGetValue(organizationId, out var theme))
             throw new Exception($"Load theme. Unknown {nameof(organizationId)}: {organizationId}");
@@ -110,6 +134,7 @@ public class ApplicationThemeService : IApplicationThemeService
     public void DarkMode(bool isDark)
     {
         Theme.Dark = isDark ? "dark" : null;
+        Console.WriteLine($"Organization theme changed. OrganizationName: {Theme.Organization}");
     }
 
     public Task<Theme> Generate()
