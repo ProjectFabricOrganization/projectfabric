@@ -51,5 +51,6 @@ public partial class NavMenuViewModel(IApplicationStateService applicationStateS
         var isDark = Theme.Dark == "dark";
         ApplicationThemeService.DarkMode(!isDark);
         Console.WriteLine($"Theme changed to {Theme.Dark}");
+        //navigationManager.NavigateTo(navigationManager.Uri, true);
     }
 }
