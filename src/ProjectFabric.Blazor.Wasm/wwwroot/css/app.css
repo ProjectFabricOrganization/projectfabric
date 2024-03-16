@@ -1681,10 +1681,6 @@ input:checked + .toggle-bg {
   min-width: 0px;
 }
 
-.min-w-12 {
-  min-width: 3rem;
-}
-
 .min-w-20 {
   min-width: 5rem;
 }
