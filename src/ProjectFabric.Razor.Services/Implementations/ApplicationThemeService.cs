@@ -27,12 +27,24 @@ public class ApplicationThemeService : IApplicationThemeService
                 }),
                 AdminTheme = new AdminTheme
                 {
+                    NavMenuItems = new ObservableCollection<NavItem>(new[]
+                    {
+                        new NavItem() { Name = "Dashboard", Link = "./dashboard" },
+                        new NavItem() { Name = "Products", Link = "./products" },
+                        new NavItem() { Name = "Services", Link = "./services" },
+                        new NavItem() { Name = "Features", Link = "./features" }
+                    }),
                     SidebarMainItems = new ObservableCollection<NavItem>(new[]
                     {
-                        new NavItem { Icon = "images/dashboard.svg", Name = "Dashboard", Link = "./admin/dashboard", Notification = "Up"},
                         new NavItem
                         {
-                            Icon = "images/business-card.svg", Name = "Social Traffic", Link = "./admin/social-traffic", Notification = "New"
+                            Icon = "images/dashboard.svg", Name = "Dashboard", Link = "./admin/dashboard",
+                            Notification = "Up"
+                        },
+                        new NavItem
+                        {
+                            Icon = "images/business-card.svg", Name = "Social Traffic", Link = "./admin/social-traffic",
+                            Notification = "New"
                         },
                         new NavItem
                         {
@@ -83,17 +95,45 @@ public class ApplicationThemeService : IApplicationThemeService
                 }),
                 AdminTheme = new AdminTheme
                 {
+                    NavMenuItems = new ObservableCollection<NavItem>(new[]
+                    {
+                        new NavItem() { Name = "Projects", Link = "./projects" },
+                        new NavItem() { Name = "Accounts", Link = "./accounts" },
+                        new NavItem() { Name = "Domains", Link = "./domains" },
+                        new NavItem() { Name = "Achievements", Link = "./achievements" }
+                    }),
                     SidebarMainItems = new ObservableCollection<NavItem>(new[]
                     {
-                        new NavItem { Name = "Dashboard", Link = "./dashboard" },
-                        new NavItem { Name = "Social Traffic", Link = "./social-traffic" },
-                        new NavItem { Name = "Recent Activities", Link = "./recent-activities" }
+                        new NavItem
+                        {
+                            Icon = "images/dashboard.svg", Name = "Dashboard", Link = "./admin/dashboard",
+                            Notification = "Up"
+                        },
+                        new NavItem
+                        {
+                            Icon = "images/business-card.svg", Name = "Social Traffic", Link = "./admin/social-traffic",
+                            Notification = "New"
+                        },
+                        new NavItem
+                        {
+                            Icon = "images/star.svg", Name = "Recent Activities",
+                            Link = "./admin/recent-activities", Notification = "7"
+                        },
+                        new NavItem
+                        {
+                            Icon = "images/briefcase.svg", Name = "Clients",
+                            Link = "./admin/clients", Notification = "+2"
+                        },
+                        new NavItem
+                        {
+                            Icon = "images/notifications.svg", Name = "Notifications",
+                            Link = "./admin/notifications", Notification = "3"
+                        }
                     }),
                     SidebarSettingsItems = new ObservableCollection<NavItem>(new[]
                     {
-                        new NavItem { Name = "Home", Link = "./dashboard" },
-                        new NavItem { Name = "Pricing", Link = "./dashboard" },
-                        new NavItem { Name = "About", Link = "./dashboard" }
+                        new NavItem { Icon = "images/key.svg", Name = "Account", Link = "./profile" },
+                        new NavItem { Icon = "images/settings.svg", Name = "Settings", Link = "./settings" },
                     })
                 }
             }

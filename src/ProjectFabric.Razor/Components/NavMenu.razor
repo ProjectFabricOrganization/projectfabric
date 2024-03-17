@@ -16,7 +16,7 @@
     <div class="flex flex-1 p-6 gap-x-2 justify-center items-center hidden lg:flex">
         @foreach (var navItem in ViewModel.Theme.NavItems)
         {
-            <a class="flex items-center rounded-md font-medium h-10 px-8 bg-white dark:bg-gray-900 text-black dark:text-white" href="@navItem.Link">@navItem.Name</a>
+            <a class="text-nowrap flex items-center rounded-md font-medium h-10 px-8 bg-white dark:bg-gray-900 text-black dark:text-white" href="@navItem.Link">@navItem.Name</a>
         }
     </div>
     <div class="flex basis-auto items-end justify-end gap-x-6 p-10 px-2 sm:px-6 lg:px-8">
