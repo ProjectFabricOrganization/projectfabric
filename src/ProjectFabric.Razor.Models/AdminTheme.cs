@@ -5,6 +5,9 @@ namespace ProjectFabric.Razor.Models;
 
 public partial class AdminTheme : ObservableObject
 {
+    // navmenu
+    [ObservableProperty] private ObservableCollection<NavItem> _navMenuItems;
+
     // sidebar
     [ObservableProperty] private ObservableCollection<NavItem> _sidebarMainItems;
     [ObservableProperty] private ObservableCollection<NavItem> _sidebarSettingsItems;

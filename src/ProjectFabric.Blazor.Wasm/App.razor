@@ -35,7 +35,8 @@
     protected override void OnInitialized()
     {
         // load theme
-        ApplicationThemeService.LoadDefault();
+        var organizationId = "Enterprise Automation System"; // IT Engineer Portfolio, Enterprise Automation System
+        ApplicationThemeService.FindTheme(organizationId);
         Console.WriteLine($"Organization default theme loaded. OrganizationName: {ApplicationThemeService.Theme.Organization}");
     }
 
