@@ -3482,6 +3482,11 @@ input:checked + .toggle-bg {
     row-gap: 0px;
   }
 
+  .sm\:gap-x-1 {
+    -moz-column-gap: 0.25rem;
+         column-gap: 0.25rem;
+  }
+
   .sm\:rounded-t-none {
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -3529,6 +3534,11 @@ input:checked + .toggle-bg {
 
   .sm\:pt-80 {
     padding-top: 20rem;
+  }
+
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .sm\:text-4xl {
@@ -3738,11 +3748,6 @@ input:checked + .toggle-bg {
 
   .xl\:pt-80 {
     padding-top: 20rem;
-  }
-
-  .xl\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
   }
 }
 
