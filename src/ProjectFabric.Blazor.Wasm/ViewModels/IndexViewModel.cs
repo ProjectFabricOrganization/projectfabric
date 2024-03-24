@@ -1,16 +1,15 @@
-﻿using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using ProjectFabric.Blazor.Wasm.Services;
-using ProjectFabric.Razor.Models;
-using ProjectFabric.Razor.ViewModels;
 using ProjectFabric.Razor.Services.Interfaces;
+using ProjectFabric.Razor.ViewModels;
 
 namespace ProjectFabric.Blazor.Wasm.ViewModels;
 
 public class IndexViewModel(IApplicationStateService applicationStateService,
-        IApplicationThemeService applicationThemeService, 
-        BrowserService browserService)
-    : ViewModelBase(applicationStateService, applicationThemeService)
+        IApplicationThemeService applicationThemeService,
+        BrowserService browserService, NavigationManager navigationManager)
+    : ViewModelBase(applicationStateService, applicationThemeService, navigationManager)
 {
     public string AccessToken { get; set; }
     public string Organization { get; set; }
@@ -19,7 +18,7 @@ public class IndexViewModel(IApplicationStateService applicationStateService,
 
     public override Task OnInitializedAsync()
     {
-        browserService.GetDimensions().ContinueWith((x) =>
+        browserService.GetDimensions().ContinueWith(x =>
         {
             Console.WriteLine($"{nameof(IndexViewModel)}. Width: {x.Result.Width}. Height: {x.Result.Height}");
         });
@@ -48,7 +47,7 @@ public class IndexViewModel(IApplicationStateService applicationStateService,
     public void LeftClick(PointerEventArgs args)
     {
         // Get Dimensions
-        browserService.GetDimensions().ContinueWith((x) =>
+        browserService.GetDimensions().ContinueWith(x =>
         {
             Console.WriteLine($"{nameof(IndexViewModel)}. Width: {x.Result.Width}. Height: {x.Result.Height}");
         });
@@ -61,7 +60,6 @@ public class IndexViewModel(IApplicationStateService applicationStateService,
 
     public void MouseOver()
     {
-       // Console.WriteLine("MouseOver");
-
+        // Console.WriteLine("MouseOver");
     }
 }

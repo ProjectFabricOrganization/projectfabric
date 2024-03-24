@@ -20,7 +20,7 @@ public partial class LoginViewModel : ViewModelBase
 
     public LoginViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(
-        applicationStateService, applicationThemeService)
+        applicationStateService, applicationThemeService, navigationManager)
     {
         _navigationManager = navigationManager;
     }

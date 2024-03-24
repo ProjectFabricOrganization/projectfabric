@@ -9,7 +9,7 @@ namespace ProjectFabric.Razor.ViewModels;
 
 public partial class NavMenuViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager)
-    : ViewModelBase(applicationStateService, applicationThemeService)
+    : ViewModelBase(applicationStateService, applicationThemeService, navigationManager)
 {
     [ObservableProperty] private Theme _theme;
 
@@ -48,8 +48,7 @@ public partial class NavMenuViewModel(IApplicationStateService applicationStateS
     [RelayCommand]
     public void ChangeTheme()
     {
-        var isDark = Theme.Dark == "dark";
-        ApplicationThemeService.DarkMode(!isDark);
+        ApplicationThemeService.DarkModeSwitch();
         Console.WriteLine($"Theme changed to {Theme.Dark}");
         //navigationManager.NavigateTo(navigationManager.Uri, true);
     }

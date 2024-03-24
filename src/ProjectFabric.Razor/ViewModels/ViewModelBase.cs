@@ -1,18 +1,24 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.AspNetCore.Components;
+using ProjectFabric.Razor.Models;
 using ProjectFabric.Razor.Services.Interfaces;
 
 namespace ProjectFabric.Razor.ViewModels;
 
 public abstract partial class ViewModelBase : ObservableObject, IViewModelBase
 {
+    public Theme Theme { get; set; }
+
     protected readonly IApplicationStateService ApplicationStateService;
     protected readonly IApplicationThemeService ApplicationThemeService;
+    protected readonly NavigationManager NavigationManager;
 
-    protected ViewModelBase(IApplicationStateService applicationStateService, IApplicationThemeService applicationThemeService)
+    protected ViewModelBase(IApplicationStateService applicationStateService, IApplicationThemeService applicationThemeService, NavigationManager navigationManager)
     {
         ApplicationStateService = applicationStateService;
         ApplicationThemeService = applicationThemeService;
+        NavigationManager = navigationManager;
     }
 
     protected virtual void NotifyStateChanged() => OnPropertyChanged(default(string));

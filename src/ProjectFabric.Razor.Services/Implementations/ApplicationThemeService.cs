@@ -29,10 +29,11 @@ public class ApplicationThemeService : IApplicationThemeService
                 {
                     NavMenuItems = new ObservableCollection<NavItem>(new[]
                     {
-                        new NavItem() { Name = "Dashboard", Link = "./dashboard" },
+                        new NavItem() { Name = "Dashboard", Link = "./admin/dashboard" },
                         new NavItem() { Name = "Products", Link = "./products" },
                         new NavItem() { Name = "Services", Link = "./services" },
-                        new NavItem() { Name = "Features", Link = "./features" }
+                        new NavItem() { Name = "Features", Link = "./features" },
+                        new NavItem() { Name = "Analytics", Link = "./analytics" }
                     }),
                     SidebarMainItems = new ObservableCollection<NavItem>(new[]
                     {
@@ -139,8 +140,6 @@ public class ApplicationThemeService : IApplicationThemeService
             }
         }
     };
-
-    public AdminTheme AdminTheme { get; }
     
     public Theme Theme { get; private set; }
 
@@ -148,32 +147,21 @@ public class ApplicationThemeService : IApplicationThemeService
     {
         _localStorage = localStorage;
     }
-
-    public void LoadDefault()
-    {
-        var organizationId = "Enterprise Automation System"; // _localStorage.GetItemAsStringAsync(OrganizationId).Result;
-        if (organizationId != null)
-        {
-            FindTheme(organizationId);
-            return;
-        }
-
-        var defaultTheme = _themes.First();
-        //_localStorage.SetItemAsStringAsync(OrganizationId, defaultTheme.Key);
-        Theme = defaultTheme.Value;
-    }
-
-    public void FindTheme(string organizationId)
+    
+    public void ChangeTheme(string organizationId)
     {
         if (!_themes.TryGetValue(organizationId, out var theme))
             throw new Exception($"Load theme. Unknown {nameof(organizationId)}: {organizationId}");
 
         Theme = theme;
+
+        _localStorage.SetItemAsync(OrganizationId, organizationId);
     }
 
-    public void DarkMode(bool isDark)
+    public void DarkModeSwitch()
     {
-        Theme.Dark = isDark ? "dark" : null;
+        var isDark = Theme.Dark == "dark";
+        Theme.Dark = !isDark ? "dark" : null;
         Console.WriteLine($"Organization theme changed. OrganizationName: {Theme.Organization}");
     }
 
