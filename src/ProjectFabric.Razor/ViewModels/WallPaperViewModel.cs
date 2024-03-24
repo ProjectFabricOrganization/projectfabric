@@ -49,18 +49,18 @@ public partial class WallPaperViewModel(IApplicationStateService applicationStat
     [RelayCommand]
     public void Join()
     {
-        navigationManager.NavigateTo("registration");
+        Console.WriteLine("Joined");
     }
 
     [RelayCommand]
     public void Subscribe()
     {
-        navigationManager.NavigateTo("registration");
+        Console.WriteLine("Subscribed");
     }
 
     [RelayCommand]
     public void Submit(string par)
     {
-        navigationManager.NavigateTo("registration");
+        Console.WriteLine("Submitted");
     }
 }

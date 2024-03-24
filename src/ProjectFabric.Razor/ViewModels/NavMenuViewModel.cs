@@ -44,12 +44,11 @@ public partial class NavMenuViewModel(IApplicationStateService applicationStateS
         //navigationManager.NavigateToLogin("./authentication/login");
         navigationManager.NavigateTo("./admin/dashboard");
     }
-
+    
     [RelayCommand]
-    public void ChangeTheme()
+    public void SwitchDarkMode()
     {
         ApplicationThemeService.DarkModeSwitch();
         Console.WriteLine($"Theme changed to {Theme.Dark}");
-        //navigationManager.NavigateTo(navigationManager.Uri, true);
     }
 }

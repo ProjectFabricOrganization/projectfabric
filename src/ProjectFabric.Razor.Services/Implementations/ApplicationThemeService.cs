@@ -8,6 +8,7 @@ namespace ProjectFabric.Razor.Services.Implementations;
 public class ApplicationThemeService : IApplicationThemeService
 {
     private const string OrganizationId = "organizationId";
+    private const string DarkMode = "darkMode";
 
     private readonly ILocalStorageService _localStorage;
 
@@ -156,6 +157,7 @@ public class ApplicationThemeService : IApplicationThemeService
         Theme = theme;
 
         _localStorage.SetItemAsync(OrganizationId, organizationId);
+        _localStorage.SetItemAsync(DarkMode, theme.Dark == "dark");
     }
 
     public void DarkModeSwitch()
