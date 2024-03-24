@@ -14,7 +14,7 @@ public partial class StatisticsCardsViewModel : ViewModelBase
 
     public StatisticsCardsViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(
-        applicationStateService, applicationThemeService)
+        applicationStateService, applicationThemeService, navigationManager)
     {
         _navigationManager = navigationManager;
     }

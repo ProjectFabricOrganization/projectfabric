@@ -7,19 +7,12 @@ module.exports = {
     ],
     theme: {
         extend: {
-            spacing: {
-                '128': "32rem",
-                '144': "36rem",
-            },
-            borderRadius: {
-                '4xl': "2rem",
-            },
             fontFamily: {
                 display: 'Oswald, ui-serif',
                 sans: 'Passion One, sans',
                 serif: 'Merriweather", "serif',
             }
-        },
+        }
     },
     plugins:
     [
@@ -27,7 +20,7 @@ module.exports = {
             charts: true,
             forms: true,
             tooltips: true
-        }),
+        })
     ],
     darkMode: "class"
 }

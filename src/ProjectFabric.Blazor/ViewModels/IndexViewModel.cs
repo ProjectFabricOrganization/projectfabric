@@ -13,7 +13,7 @@ public class IndexViewModel : ViewModelBase
     public ElementReference MyTarget { get; set; }
 
     public IndexViewModel(IApplicationStateService applicationStateService,
-        IApplicationThemeService applicationThemeService) : base(applicationStateService, applicationThemeService)
+        IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(applicationStateService, applicationThemeService, navigationManager)
     {
         
     }

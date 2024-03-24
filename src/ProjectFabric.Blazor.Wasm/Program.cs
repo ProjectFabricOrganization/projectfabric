@@ -38,6 +38,7 @@ builder.Services.AddTransient<ClientTableViewModel>();
 builder.Services.AddTransient<ProfileViewModel>();
 builder.Services.AddTransient<SettingsViewModel>();
 builder.Services.AddTransient<NotificationsViewModel>();
+builder.Services.AddTransient<UserStateViewModel>();
 
 // browser
 builder.Services.AddSingleton<BrowserService>(); 

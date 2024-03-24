@@ -9,7 +9,7 @@ namespace ProjectFabric.Razor.ViewModels;
 
 public partial class SocialTrafficViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager)
-    : ViewModelBase(applicationStateService, applicationThemeService)
+    : ViewModelBase(applicationStateService, applicationThemeService, navigationManager)
 {
     [ObservableProperty] private Theme _theme;
 

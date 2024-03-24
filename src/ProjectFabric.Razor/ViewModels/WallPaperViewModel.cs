@@ -9,7 +9,7 @@ namespace ProjectFabric.Razor.ViewModels;
 
 public partial class WallPaperViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager)
-    : ViewModelBase(applicationStateService, applicationThemeService)
+    : ViewModelBase(applicationStateService, applicationThemeService, navigationManager)
 {
     [ObservableProperty] private Theme _theme = new();
     [ObservableProperty] private string _startUsingText;
@@ -49,18 +49,18 @@ public partial class WallPaperViewModel(IApplicationStateService applicationStat
     [RelayCommand]
     public void Join()
     {
-        navigationManager.NavigateTo("registration");
+        Console.WriteLine("Joined");
     }
 
     [RelayCommand]
     public void Subscribe()
     {
-        navigationManager.NavigateTo("registration");
+        Console.WriteLine("Subscribed");
     }
 
     [RelayCommand]
     public void Submit(string par)
     {
-        navigationManager.NavigateTo("registration");
+        Console.WriteLine("Submitted");
     }
 }

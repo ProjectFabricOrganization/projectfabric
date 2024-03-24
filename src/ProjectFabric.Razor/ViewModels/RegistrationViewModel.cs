@@ -14,7 +14,7 @@ public partial class RegistrationViewModel : ViewModelBase
 
     public RegistrationViewModel(IApplicationStateService applicationStateService,
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager) : base(
-        applicationStateService, applicationThemeService)
+        applicationStateService, applicationThemeService, navigationManager)
     {
         _navigationManager = navigationManager;
     }
