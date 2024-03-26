@@ -2,31 +2,35 @@
 @inject BrowserService BrowserService
 
 <CascadingAuthenticationState>
-    <Router AppAssembly="@typeof(App).Assembly">
-        <Found Context="routeData">
-            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
-                <NotAuthorized>
-                    @if (context.User.Identity?.IsAuthenticated != true)
-                    {
-                        <RedirectToLogin/>
-                    }
-                    else
-                    {
-                        <p role="alert">You are not authorized to access this resource.</p>
-                    }
-                </NotAuthorized>
-            </AuthorizeRouteView>
-        </Found>
-        <NotFound>
-            <PageTitle>Not found</PageTitle>
-            <LayoutView Layout="@typeof(MainLayout)">
-                <p role="alert">Sorry, there's nothing at this address.</p>
-            </LayoutView>
-        </NotFound>
-    </Router>
+    <CascadingValue Value="Theme">
+        <Router AppAssembly="@typeof(App).Assembly">
+            <Found Context="routeData">
+                <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                    <NotAuthorized>
+                        @if (context.User.Identity?.IsAuthenticated != true)
+                        {
+                            <RedirectToLogin/>
+                        }
+                        else
+                        {
+                            <p role="alert">You are not authorized to access this resource.</p>
+                        }
+                    </NotAuthorized>
+                </AuthorizeRouteView>
+            </Found>
+            <NotFound>
+                <PageTitle>Not found</PageTitle>
+                <LayoutView Layout="@typeof(MainLayout)">
+                    <p role="alert">Sorry, there's nothing at this address.</p>
+                </LayoutView>
+            </NotFound>
+        </Router>
+    </CascadingValue>
 </CascadingAuthenticationState>
 
 @code {
+
+    Theme Theme;
 
     /// <summary>
     ///     Entry point
@@ -36,8 +40,8 @@
     {
         // load theme
         var organizationId = "Enterprise Automation System"; // IT Engineer Portfolio, Enterprise Automation System
-        ApplicationThemeService.ChangeTheme(organizationId);
-        Console.WriteLine($"Organization default theme loaded. OrganizationName: {ApplicationThemeService.Theme.Organization}");
+        Theme = ApplicationThemeService.FindTheme(organizationId);
+        Console.WriteLine($"Organization default theme loaded. OrganizationName: {Theme.Organization}");
     }
 
     protected override async Task OnInitializedAsync()

@@ -10,7 +10,7 @@ public class ApplicationThemeService : IApplicationThemeService
     private const string OrganizationId = "organizationId";
     private const string DarkMode = "darkMode";
 
-    private readonly ILocalStorageService _localStorage;
+    private readonly ISyncLocalStorageService _localStorage;
 
     private readonly Dictionary<string, Theme> _themes = new()
     {
@@ -142,29 +142,21 @@ public class ApplicationThemeService : IApplicationThemeService
         }
     };
     
-    public Theme Theme { get; private set; }
-
-    public ApplicationThemeService(ILocalStorageService localStorage)
+    public ApplicationThemeService(ISyncLocalStorageService localStorage)
     {
         _localStorage = localStorage;
     }
     
-    public void ChangeTheme(string organizationId)
+    public Theme? FindTheme(string organizationId)
     {
-        if (!_themes.TryGetValue(organizationId, out var theme))
-            throw new Exception($"Load theme. Unknown {nameof(organizationId)}: {organizationId}");
-
-        Theme = theme;
-
-        _localStorage.SetItemAsync(OrganizationId, organizationId);
-        _localStorage.SetItemAsync(DarkMode, theme.Dark == "dark");
+        return _themes.TryGetValue(organizationId, out var theme) ? theme : null;
     }
 
-    public void DarkModeSwitch()
+    public void DarkModeSwitch(Theme theme)
     {
-        var isDark = Theme.Dark == "dark";
-        Theme.Dark = !isDark ? "dark" : null;
-        Console.WriteLine($"Organization theme changed. OrganizationName: {Theme.Organization}");
+        theme.Dark = string.IsNullOrWhiteSpace(theme.Dark) ? "dark" : null;
+
+        Console.WriteLine($"Organization theme changed. OrganizationName: {theme.Organization}. DarkMode: {theme.Dark == "dark"}");
     }
 
     public Task<Theme> Generate()

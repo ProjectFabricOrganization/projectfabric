@@ -8,6 +8,8 @@ public partial class AdminNavMenuViewModel(IApplicationStateService applicationS
         IApplicationThemeService applicationThemeService, NavigationManager navigationManager)
     : ViewModelBase(applicationStateService, applicationThemeService, navigationManager)
 {
+
+
     [RelayCommand]
     public void Logout()
     {
@@ -17,7 +19,6 @@ public partial class AdminNavMenuViewModel(IApplicationStateService applicationS
     [RelayCommand]
     public void DarkModeSwitch()
     {
-        ApplicationThemeService.DarkModeSwitch();
-        Console.WriteLine($"Theme changed to {Theme.Dark}");
+        ApplicationThemeService.DarkModeSwitch(Theme);
     }
 }

@@ -13,7 +13,8 @@
 
     protected override void OnInitialized()
     {
-        Theme = ApplicationThemeService.Theme;
+        var organizationId = "Enterprise Automation System";
+        Theme = ApplicationThemeService.FindTheme(organizationId);
         Theme.PropertyChanged += ThemeOnPropertyChanged;
         base.OnInitialized();
     }

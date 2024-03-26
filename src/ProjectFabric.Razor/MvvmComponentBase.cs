@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using ProjectFabric.Razor.ViewModels;
 
-namespace ProjectFabric.Razor.Components;
+namespace ProjectFabric.Razor;
 
 public abstract class MvvmComponentBase<TViewModel> : ComponentBase where TViewModel : ViewModelBase
 {

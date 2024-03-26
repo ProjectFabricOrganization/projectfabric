@@ -1980,6 +1980,11 @@ input:checked + .toggle-bg {
        column-gap: 0.75rem;
 }
 
+.gap-x-6 {
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
+}
+
 .gap-x-8 {
   -moz-column-gap: 2rem;
        column-gap: 2rem;
@@ -3701,10 +3706,6 @@ input:checked + .toggle-bg {
     width: 0.75rem;
   }
 
-  .sm\:min-w-20 {
-    min-width: 5rem;
-  }
-
   .sm\:max-w-md {
     max-width: 28rem;
   }
@@ -3848,11 +3849,6 @@ input:checked + .toggle-bg {
   .md\:py-20 {
     padding-top: 5rem;
     padding-bottom: 5rem;
-  }
-
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
   }
 
   .md\:text-\[40px\] {

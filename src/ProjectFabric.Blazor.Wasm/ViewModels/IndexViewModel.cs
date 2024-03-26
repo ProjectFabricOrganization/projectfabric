@@ -26,8 +26,8 @@ public class IndexViewModel(IApplicationStateService applicationStateService,
         Console.WriteLine($"{nameof(IndexViewModel)}. {nameof(OnInitializedAsync)}");
 
         // TODO: get organization
-        Organization = ApplicationThemeService.Theme.Organization;
-
+        var organizationId = "Enterprise Automation System";
+        Organization = organizationId;
         // TODO: get user cookie 
         AccessToken = Guid.NewGuid().ToString();
 

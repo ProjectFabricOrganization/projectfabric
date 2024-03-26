@@ -4,11 +4,9 @@ namespace ProjectFabric.Razor.Services.Interfaces;
 
 public interface IApplicationThemeService
 {
-    Theme Theme { get; }
-    
-    void ChangeTheme(string organizationId);
+    Theme? FindTheme(string organizationId);
 
-    void DarkModeSwitch();
+    void DarkModeSwitch(Theme theme);
 
     Task<Theme> Generate();
 }
