@@ -40,7 +40,14 @@
     {
         // load theme
         var organizationId = "Enterprise Automation System"; // IT Engineer Portfolio, Enterprise Automation System
-        Theme = ApplicationThemeService.FindTheme(organizationId);
+        var theme = ApplicationThemeService.FindTheme(organizationId);
+        if (theme == null)
+        {
+            Console.WriteLine("Theme is null.");
+            return;
+        }
+
+        Theme = theme;
         Console.WriteLine($"Organization default theme loaded. OrganizationName: {Theme.Organization}");
     }
 

@@ -1,8 +1,6 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
-using ProjectFabric.Razor.Models;
 using ProjectFabric.Razor.Services.Interfaces;
 
 namespace ProjectFabric.Razor.ViewModels;
@@ -16,7 +14,7 @@ public partial class NavMenuViewModel(IApplicationStateService applicationStateS
     {
         navigationManager.NavigateTo("./registration");
     }
-    
+
     [RelayCommand]
     public void Logout()
     {
@@ -27,13 +25,6 @@ public partial class NavMenuViewModel(IApplicationStateService applicationStateS
     public void Login()
     {
         //navigationManager.NavigateToLogin("./authentication/login");
-        navigationManager.NavigateTo("./admin");
-    }
-    
-    [RelayCommand]
-    public void SwitchDarkMode()
-    {
-        ApplicationThemeService.DarkModeSwitch(Theme);
-        Console.WriteLine($"Theme changed to {Theme.Dark}");
+        navigationManager.NavigateTo("./admin/dashboard");
     }
 }

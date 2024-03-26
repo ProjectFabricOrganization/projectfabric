@@ -15,10 +15,4 @@ public partial class AdminNavMenuViewModel(IApplicationStateService applicationS
     {
         navigationManager.NavigateTo("/");
     }
-
-    [RelayCommand]
-    public void DarkModeSwitch()
-    {
-        ApplicationThemeService.DarkModeSwitch(Theme);
-    }
 }

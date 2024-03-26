@@ -51,4 +51,10 @@ public abstract partial class ViewModelBase : ObservableObject, IViewModelBase
         await Task.CompletedTask.ConfigureAwait(true);
     }
 
+    [RelayCommand]
+    public void DarkModeSwitch()
+    {
+        ApplicationThemeService.DarkModeSwitch(_theme);
+    }
+
 }
