@@ -1,5 +1,5 @@
 ﻿@inherits LayoutComponentBase
-@inject IApplicationThemeService ApplicationThemeService
+@inject IApplicationThemeService ApplicationThemeService;
 
 <div class="@Theme.Dark bg-white dark:bg-gray-900 text-black dark:text-white">
     <NavMenu></NavMenu>
@@ -13,7 +13,8 @@
 
     protected override void OnInitialized()
     {
-        Theme = ApplicationThemeService.Theme;
+        var organizationId = "Enterprise Automation System";
+        Theme = ApplicationThemeService.FindTheme(organizationId);
         Theme.PropertyChanged += ThemeOnPropertyChanged;
         base.OnInitialized();
     }

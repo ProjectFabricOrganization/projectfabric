@@ -1650,10 +1650,6 @@ input:checked + .toggle-bg {
   height: 100vh;
 }
 
-.h-12 {
-  height: 3rem;
-}
-
 .max-h-10 {
   max-height: 2.5rem;
 }
@@ -1982,6 +1978,11 @@ input:checked + .toggle-bg {
 .gap-x-3 {
   -moz-column-gap: 0.75rem;
        column-gap: 0.75rem;
+}
+
+.gap-x-6 {
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 
 .gap-x-8 {
@@ -3693,12 +3694,16 @@ input:checked + .toggle-bg {
     display: flex;
   }
 
+  .sm\:h-3 {
+    height: 0.75rem;
+  }
+
   .sm\:w-2\/3 {
     width: 66.666667%;
   }
 
-  .sm\:min-w-20 {
-    min-width: 5rem;
+  .sm\:w-3 {
+    width: 0.75rem;
   }
 
   .sm\:max-w-md {
@@ -3846,11 +3851,6 @@ input:checked + .toggle-bg {
     padding-bottom: 5rem;
   }
 
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
   .md\:text-\[40px\] {
     font-size: 40px;
   }
@@ -3863,11 +3863,6 @@ input:checked + .toggle-bg {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .md\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
   }
 }
 
@@ -4013,9 +4008,9 @@ input:checked + .toggle-bg {
     line-height: 2.5rem;
   }
 
-  .lg\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -4069,22 +4064,12 @@ input:checked + .toggle-bg {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
-
-  .xl\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
-  }
 }
 
 @media (min-width: 1536px) {
-  .\32xl\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  .\32xl\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
+  .\32xl\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 

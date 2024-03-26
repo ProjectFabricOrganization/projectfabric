@@ -28,7 +28,15 @@ public partial class UserStateViewModel(IApplicationStateService applicationStat
     [RelayCommand]
     public void ChangeTheme()
     {
-        ApplicationThemeService.ChangeTheme("Enterprise Automation System");
+        var organizationId = "Enterprise Automation System";
+        var theme = ApplicationThemeService.FindTheme(organizationId);
+        if (theme == null)
+        {
+            Console.WriteLine($"Theme not found. OrganizationId = {organizationId}");
+            return;
+        }
+
+        Console.WriteLine($"Theme loaded. OrganizationId: {organizationId}");
     }
 
     [RelayCommand]
@@ -37,7 +45,7 @@ public partial class UserStateViewModel(IApplicationStateService applicationStat
         var darkMode = !IsDark;
 
         IsDark = darkMode;
-        ApplicationThemeService.DarkModeSwitch();
+        ApplicationThemeService.DarkModeSwitch(Theme);
         localStorageService.SetItemAsync("darkMode", darkMode);
     }
 
